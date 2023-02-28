@@ -1,0 +1,25 @@
+import { useEffect, useRef, useState } from 'react';
+import React from 'react';
+import CardReveal from '../UX-Components/cardReveal';
+
+const Domains = () =>{
+
+    return(
+        <>
+            <section class="bg-white dark:bg-gray-900">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+                <div class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
+                    <span class="top-0 left-7 mr-2 ml-2 w-3.5 h-3.5 bg-pink-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+                    <span class="text-sm font-medium">WHAT ARE WE INTO</span> 
+                </div>
+                <h1 class="mb-16 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">WE DELIVER EVERYTHING IN 3D</h1>
+
+                <CardReveal />
+
+            </div>
+            </section>
+        </>
+    )
+}
+
+export default Domains;

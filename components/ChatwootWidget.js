@@ -2,6 +2,7 @@ import React from 'react';
 
 class ChatwootWidget extends React.Component {
   componentDidMount () {
+    
     // Add Chatwoot Settings
     window.chatwootSettings = {
       hideMessageBubble: false,

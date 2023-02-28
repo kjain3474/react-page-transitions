@@ -1,0 +1,23 @@
+/*** Hero Section Framer motion ***/
+.container_hero {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    overflow: hidden;
+    margin: 0;
+    list-style: none;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba( 255, 255, 255, 0.25 );
+    backdrop-filter: blur( 1px );
+    -webkit-backdrop-filter: blur( 1px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+      }
+  
+  .item_hero {
+    background: white;
+    border-radius: 100%;
+  }

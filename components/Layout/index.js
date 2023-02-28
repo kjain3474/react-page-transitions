@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Stars } from "../UX-Components/Stars";
 
 const Layout = ({ children }) => (
   <motion.div
@@ -10,9 +11,12 @@ const Layout = ({ children }) => (
       stiffness: 260,
       damping: 20,
     }}
-    className="bg-[#ECF0F3] isolate"
+    className= "body-font font-poppins h-auto mx-0 my-0"
   >
     {children}
+    <div className="absolute bottom-0 left-0">
+            <Stars />
+      </div>
   </motion.div>
 );
 

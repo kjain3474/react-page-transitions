@@ -1,8 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-  
+
 :root {
+    --loader-bg: #ECF0F3;
     --primary-light: #8abdff;
     --primary: #6d5dfc;
     --primary-dark: #5b0eeb;
@@ -11,16 +12,27 @@
     --greyLight-2: #c8d0e7;
     --greyLight-3: #bec8e4;
     --greyDark: #9baacf;
+    --background: #4A4873;
+    --tab-primary-color: #185ee0;
+    --tab-secondary-color: #e6eef9;
   }
   
   *, *::before, *::after {
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
   }
 
+  .section {
+    background: var(--loader-bg);
+    box-sizing: border-box;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /*Card loader with logo*/
   .loader {
-    background: #ECF0F3;
+    background: var(--loader-bg);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -34,7 +46,7 @@
     width: 40px;
     height: 40px;
     max-width: 80%;
-    background: #ECF0F3;
+    background: var(--loader-bg);
     box-shadow:  0 0 0 #c9cccf,
                  0 0 0 #ffffff,
                   10px 10px 10px #c9cccf inset,
@@ -47,7 +59,7 @@
     0% {
       width: 40px;
       height: 40px;
-      background: #ECF0F3;
+      background: var(--loader-bg);
       box-shadow:  0 0 0 #c9cccf,
                    0 0 0 #ffffff,
                     10px 10px 10px #c9cccf inset,
@@ -56,7 +68,7 @@
     25% {
       width: 40px;
       height: 40px;
-      background: #ECF0F3;
+      background: var(--loader-bg);
       box-shadow:  10px 10px 10px #c9cccf,
                    10px 10px 10px #ffffff,
                    0 0 0 #c9cccf inset,
@@ -65,7 +77,7 @@
     50% {
       width: 60px;
       height: 240px;
-      background: #ECF0F3;
+      background: var(--loader-bg);
       box-shadow:  10px 10px 10px #c9cccf,
                    10px 10px 10px #ffffff,
                    0 0 0 #c9cccf inset,
@@ -82,7 +94,10 @@
     }
 }
 
-.btn {
+
+
+/* Purple small Button*/
+.btn_loader {
     width: 4rem;
     height: 4rem;
     border-radius: 1rem;
@@ -94,285 +109,3149 @@
     cursor: pointer;
     transition: 0.3s ease;
   }
-  .btn__primary {
+  .btn__primary_loader {
     grid-column: 1/2;
     grid-row: 4/5;
     background: var(--primary);
     box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light), inset -0.2rem -0.2rem 1rem var(--primary-dark), 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
     color: var(--greyLight-1);
   }
-  .btn__primary:hover {
+  .btn__primary_loader:hover {
     color: var(--white);
   }
-  .btn__primary:active {
+  .btn__primary_loader:active {
     box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-dark), inset -0.2rem -0.2rem 1rem var(--primary-light);
   }
-  .btn__secondary {
+  .btn__secondary_loader {
     grid-column: 1/2;
     grid-row: 5/6;
     color: var(--greyDark);
   }
-  .btn__secondary:hover {
+  .btn__secondary_loader:hover {
     color: var(--primary);
   }
-  .btn__secondary:active {
+  .btn__secondary_loader:active {
     box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
   }
-  .btn p {
+  .btn_loader p {
     font-size: 1.6rem;
   }
-  
 
-  /* space ship */
-  .draw-container {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    /* background-color: #222; */
+  /*  CHIP  */
+.chip {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  justify-self: center;
+  width: 17rem;
+  height: 4rem;
+  border-radius: 1rem;
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chip__icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  margin: 0 0 0 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  color: var(--primary);
+}
+.chip p {
+  font-size: 0.9rem;
+  margin-left: -1.8rem;
+  color: var(--greyDark);
+}
+.chip__close {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0 0.5rem;
+  display: flex;
+  font-size: 1.6rem;
+  color: var(--greyLight-3);
+  cursor: pointer;
+}
+
+.app {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+header h1 {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+  header h1 {
+    font-size: 3rem;
   }
-  
-  .draw-container .draw {
-    height: 600px;
-    width: 400px;
-    position: relative;
-    margin-top: 10%;
+}
+header p {
+  color: #94a3b8;
+}
+
+.tag-list {
+  width: 30rem;
+  max-width: 90vw;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 1rem 0;
+  position: relative;
+  padding: 1.5rem 0;
+  overflow: hidden;
+}
+
+.loop-slider .inner {
+  display: flex;
+  width: fit-content;
+  animation-name: loop;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--direction);
+  animation-duration: var(--duration);
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 0 0.2rem;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  background-color: #334155;
+  border-radius: 0.4rem;
+  padding: 0.7rem 1rem;
+  margin-right: 1rem;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.2), 0 0.1rem 0.5rem rgba(0, 0, 0, 0.3), 0 0.2rem 1.5rem rgba(0, 0, 0, 0.4);
+}
+.tag span {
+  font-size: 1.2rem;
+  color: #64748b;
+}
+
+.fade {
+  pointer-events: none;
+  background: linear-gradient(90deg, #1e293b, transparent 30%, transparent 70%, #1e293b);
+  position: absolute;
+  inset: 0;
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(0);
   }
-  
-  /* Rocket */
-  .draw-container .rocket {
-    position: absolute;
-    height: 180px;
-    width: 80px;
-    top: 80px;
-    left: 50%;
+  100% {
     transform: translateX(-50%);
-    border-radius: 50% 50% 25% 25% / 50% 50% 40% 40%;
-    background-color: #dadada;
-    box-shadow: 0 -3px 0 #FFF;
-    transform-style: preserve-3d;
-    z-index: 2;
-    animation: animateRocket 1s linear alternate infinite;
   }
-  .draw-container .rocket::before,
-  .draw-container .rocket:after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+}
+
+h1 {
+  color: #333;
+  font-size: 3rem;
+  font-weight: 100;
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.message {
+  background-color: yellow;
+  color: #333;
+  display: block;
+  font-weight: 900;
+  overflow: hidden;
+  position: absolute;
+  padding-left: 0.5rem;
+  top: 0.2rem;
+  left: 270px;
+  animation: openclose 5s ease-in-out infinite;
+}
+
+
+@keyframes openclose {
+  0% {
+    top: 0.2rem;
+    width: 0;
   }
-  .draw-container .rocket::before {
-    width: 55%;
-    height: 10px;
-    background-color: #FF4547;
-    bottom: -10px;
-    border-radius: 0% 0% 25% 25% / 50% 50% 40% 40%;
+  5% {
+    width: 0;
   }
-  .draw-container .rocket:after {
-    height: 55px;
-    width: 155%;
-    background-color: #FF4547;
-    bottom: 0;
-    z-index: -10;
-    transform: translateX(-50%) translateZ(-1px);
-    border-radius: 50% 50% 10% 10% / 90% 90% 20% 20%;
+  15% {
+    width: 230px;
   }
-  .draw-container .rocket .window {
-    position: absolute;
-    height: 30px;
-    width: 30px;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    background-color: #FF4547;
-    box-sizing: initial;
-    border: 5px solid #adadad;
+  30% {
+    top: 0.2rem;
+    width: 230px;
   }
-  
-  @keyframes animateRocket {
-    to {
-      transform: translateX(-50%) translateY(3px);
-    }
+  33% {
+    top: 0.2rem;
+    width: 0;
   }
-  
-  /* Smoke */
-  .draw-container .smoke {
-    height: 200px;
-    width: 32px;
-    top: 260px;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    z-index: 1;
-    background-image: linear-gradient(to bottom, 
-      rgba(255, 255, 255, .1), 
-      rgba(255, 255, 255, .9)
-    );
+  35% {
+    top: 0.2rem;
+    width: 0;
   }
-  .draw-container .smoke > div {
-    position: absolute;
-    border-radius: 50%;
+  38% {
+    top: -4.5rem;
+    
   }
-  .draw-container .smoke .one {
-    height: 200px;
-    width: 200px;
-    background-color: rgba(255, 255, 255, .4);
-    top: 80px;
-    left: -180px;
-    box-shadow: 
-       -50px 80px 0 -30px rgba(255, 255, 255, .4),
-       160px 80px 0 0px rgba(255, 255, 255, .4),
-       290px 80px 0 -50px rgba(255, 255, 255, .4);
-    animation: animateSmoke 3s linear alternate infinite;
-    opacity: .9;
+  48% {
+    top: -4.5rem;
+    width: 190px;
   }
-  .draw-container .smoke .two {
-    height: 210px;
-    width: 210px;
-    top: 120px;
-    left: -90px;
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: 
-       -90px 0px 0 -40px rgba(255, 255, 255, 1),
-       90px 60px 0 -80px rgba(255, 255, 255, 1),
-       80px -40px 0 -50px rgba(255, 255, 255, 1);
-    animation: animateSmoke 1s linear alternate-reverse infinite;
-    opacity: 1;
+  62% {
+    top: -4.5rem;
+    width: 190px;
   }
-  
-  @keyframes animateSmoke {
-    to {
-      opacity: 1;
-      transform: scale(.98) translate(1px);
-    }
+  66% {
+    top: -4.5rem;
+    width: 0;
+    text-indent: 0;
   }
-  
-  /* Stars */
-  .draw-container .stars {
-    top: 150px;
+  71% {
+    top: -9rem;
+    width: 0;
+    text-indent: 5px;
   }
-  .draw-container .stars .star,
-  .draw-container .stars .star:before {
-    position: absolute;
-    background-color: #FFF;
-    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
-    box-shadow: 0 0 7px rgba(255, 255, 255, .5);
+  86% {
+    top: -9rem;
+    width: 285px;
   }
-  .draw-container .stars .star {
-    height: 15px;
-    width: 2px;
+  95% {
+    top: -9rem;
+    width: 285px;
   }
-  .draw-container .stars .star:before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
+  98% {
+    top: -9rem;
+    width: 0;
+    text-indent: 5px;
+  }
+  100% {
     top: 0;
-    left: 0;
-    transform: rotate(90deg);
+    width: 0;
+    text-indent: 0;
   }
-  .draw-container .stars .star.small {
-    height: 10px;
-    width: 1px;
+}
+
+/**** Typewriter css **/
+
+.typewriter{
+  display: block;
+  width: 100%;
+  margin-top: 3rem;
+}
+.input-wrapper {
+  display: block;
+  font-family: monospace;
+  font-size: 240%;
+  width: auto;
+}
+.input-wrapper > input,
+.input-wrapper > .placeholder {
+  display: block;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+}
+.input-wrapper > .placeholder {
+  pointer-events: none;
+}
+.input-wrapper > .placeholder::before {
+    content: "​";
+    content: "​"/"Interior Rendering";
+    alt: "Interior Rendering";
+    white-space: break-spaces;
+    will-change: content;
+    -webkit-animation: typed-0 31s linear 1s infinite forwards;
+            animation: typed-0 31s linear 1s infinite forwards;
   }
-  .draw-container .stars .star.one {
-    top: 10%;
-    left: 10%;
+  .input-wrapper > .placeholder::after {
+    content: "​";
+    position: relative;
+    display: inline-block;
+    padding-right: 2px;
+    border-right: 2px solid currentColor;
+    white-space: nowrap;
+    -webkit-animation: typed-0-caret 0.75s linear 1s infinite forwards;
+            animation: typed-0-caret 0.75s linear 1s infinite forwards;
   }
-  .draw-container .stars .star.two {
-    top: 40%;
-    height: 10px;
+  @-webkit-keyframes typed-0 {
+    0%, 0.2140537634% {
+      content: "​I";
+      content: "​I"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    0.2150537634%, 0.4291075269% {
+      content: "​In";
+      content: "​In"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    0.4301075269%, 0.6441612903% {
+      content: "​Int";
+      content: "​Int"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    0.6451612903%, 0.8592150538% {
+      content: "​Inte";
+      content: "​Inte"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    0.8602150538%, 1.0742688172% {
+      content: "​Inter";
+      content: "​Inter"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    1.0752688172%, 1.2893225806% {
+      content: "​Interi";
+      content: "​Interi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    1.2903225806%, 1.5043763441% {
+      content: "​Interio";
+      content: "​Interio"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    1.5053763441%, 1.7194301075% {
+      content: "​Interior";
+      content: "​Interior"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    1.7204301075%, 1.934483871% {
+      content: "​Interior ";
+      content: "​Interior "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    1.935483871%, 2.1495376344% {
+      content: "​Interior R";
+      content: "​Interior R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    2.1505376344%, 2.3645913978% {
+      content: "​Interior Re";
+      content: "​Interior Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    2.3655913978%, 2.5796451613% {
+      content: "​Interior Ren";
+      content: "​Interior Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    2.5806451613%, 2.7946989247% {
+      content: "​Interior Rend";
+      content: "​Interior Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    2.7956989247%, 3.0097526882% {
+      content: "​Interior Rende";
+      content: "​Interior Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    3.0107526882%, 3.2248064516% {
+      content: "​Interior Render";
+      content: "​Interior Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    3.2258064516%, 3.4398602151% {
+      content: "​Interior Renderi";
+      content: "​Interior Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    3.4408602151%, 3.6549139785% {
+      content: "​Interior Renderin";
+      content: "​Interior Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    3.6559139785%, 8.3430860215% {
+      content: "​Interior Rendering";
+      content: "​Interior Rendering"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    8.3440860215%, 8.5151290323% {
+      content: "​Interior Renderin";
+      content: "​Interior Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    8.5161290323%, 8.687172043% {
+      content: "​Interior Renderi";
+      content: "​Interior Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    8.688172043%, 8.8592150538% {
+      content: "​Interior Render";
+      content: "​Interior Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    8.8602150538%, 9.0312580645% {
+      content: "​Interior Rende";
+      content: "​Interior Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    9.0322580645%, 9.2033010753% {
+      content: "​Interior Rend";
+      content: "​Interior Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    9.2043010753%, 9.375344086% {
+      content: "​Interior Ren";
+      content: "​Interior Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    9.376344086%, 9.5473870968% {
+      content: "​Interior Re";
+      content: "​Interior Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    9.5483870968%, 9.7194301075% {
+      content: "​Interior R";
+      content: "​Interior R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    9.7204301075%, 9.8914731183% {
+      content: "​Interior ";
+      content: "​Interior "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    9.8924731183%, 10.063516129% {
+      content: "​Interior";
+      content: "​Interior"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    10.064516129%, 10.2355591398% {
+      content: "​Interio";
+      content: "​Interio"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    10.2365591398%, 10.4076021505% {
+      content: "​Interi";
+      content: "​Interi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    10.4086021505%, 10.5796451613% {
+      content: "​Inter";
+      content: "​Inter"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    10.5806451613%, 10.751688172% {
+      content: "​Inte";
+      content: "​Inte"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    10.752688172%, 10.9237311828% {
+      content: "​Int";
+      content: "​Int"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    10.9247311828%, 11.0957741935% {
+      content: "​In";
+      content: "​In"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    11.0967741935%, 11.2678172043% {
+      content: "​I";
+      content: "​I"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    11.2688172043%, 13.4183548387% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    13.4193548387%, 13.6334086022% {
+      content: "​E";
+      content: "​E"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    13.6344086022%, 13.8484623656% {
+      content: "​Ex";
+      content: "​Ex"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    13.8494623656%, 14.063516129% {
+      content: "​Ext";
+      content: "​Ext"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    14.064516129%, 14.2785698925% {
+      content: "​Exte";
+      content: "​Exte"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    14.2795698925%, 14.4936236559% {
+      content: "​Exter";
+      content: "​Exter"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    14.4946236559%, 14.7086774194% {
+      content: "​Exteri";
+      content: "​Exteri"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    14.7096774194%, 14.9237311828% {
+      content: "​Exterio";
+      content: "​Exterio"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    14.9247311828%, 15.1387849462% {
+      content: "​Exterior";
+      content: "​Exterior"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    15.1397849462%, 15.3538387097% {
+      content: "​Exterior ";
+      content: "​Exterior "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    15.3548387097%, 15.5688924731% {
+      content: "​Exterior R";
+      content: "​Exterior R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    15.5698924731%, 15.7839462366% {
+      content: "​Exterior Re";
+      content: "​Exterior Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    15.7849462366%, 15.999% {
+      content: "​Exterior Ren";
+      content: "​Exterior Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    16%, 16.2140537634% {
+      content: "​Exterior Rend";
+      content: "​Exterior Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    16.2150537634%, 16.4291075269% {
+      content: "​Exterior Rende";
+      content: "​Exterior Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    16.4301075269%, 16.6441612903% {
+      content: "​Exterior Render";
+      content: "​Exterior Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    16.6451612903%, 16.8592150538% {
+      content: "​Exterior Renderi";
+      content: "​Exterior Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    16.8602150538%, 17.0742688172% {
+      content: "​Exterior Renderin";
+      content: "​Exterior Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    17.0752688172%, 21.7624408602% {
+      content: "​Exterior Rendering";
+      content: "​Exterior Rendering"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    21.7634408602%, 21.934483871% {
+      content: "​Exterior Renderin";
+      content: "​Exterior Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    21.935483871%, 22.1065268817% {
+      content: "​Exterior Renderi";
+      content: "​Exterior Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    22.1075268817%, 22.2785698925% {
+      content: "​Exterior Render";
+      content: "​Exterior Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    22.2795698925%, 22.4506129032% {
+      content: "​Exterior Rende";
+      content: "​Exterior Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    22.4516129032%, 22.622655914% {
+      content: "​Exterior Rend";
+      content: "​Exterior Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    22.623655914%, 22.7946989247% {
+      content: "​Exterior Ren";
+      content: "​Exterior Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    22.7956989247%, 22.9667419355% {
+      content: "​Exterior Re";
+      content: "​Exterior Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    22.9677419355%, 23.1387849462% {
+      content: "​Exterior R";
+      content: "​Exterior R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    23.1397849462%, 23.310827957% {
+      content: "​Exterior ";
+      content: "​Exterior "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    23.311827957%, 23.4828709677% {
+      content: "​Exterior";
+      content: "​Exterior"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    23.4838709677%, 23.6549139785% {
+      content: "​Exterio";
+      content: "​Exterio"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    23.6559139785%, 23.8269569892% {
+      content: "​Exteri";
+      content: "​Exteri"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    23.8279569892%, 23.999% {
+      content: "​Exter";
+      content: "​Exter"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    24%, 24.1710430108% {
+      content: "​Exte";
+      content: "​Exte"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    24.1720430108%, 24.3430860215% {
+      content: "​Ext";
+      content: "​Ext"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    24.3440860215%, 24.5151290323% {
+      content: "​Ex";
+      content: "​Ex"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    24.5161290323%, 24.687172043% {
+      content: "​E";
+      content: "​E"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    24.688172043%, 26.8377096774% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    26.8387096774%, 27.0527634409% {
+      content: "​V";
+      content: "​V"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    27.0537634409%, 27.2678172043% {
+      content: "​Vi";
+      content: "​Vi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    27.2688172043%, 27.4828709677% {
+      content: "​Vid";
+      content: "​Vid"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    27.4838709677%, 27.6979247312% {
+      content: "​Vide";
+      content: "​Vide"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    27.6989247312%, 27.9129784946% {
+      content: "​Video";
+      content: "​Video"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    27.9139784946%, 28.1280322581% {
+      content: "​Video ";
+      content: "​Video "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    28.1290322581%, 28.3430860215% {
+      content: "​Video R";
+      content: "​Video R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    28.3440860215%, 28.5581397849% {
+      content: "​Video Re";
+      content: "​Video Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    28.5591397849%, 28.7731935484% {
+      content: "​Video Ren";
+      content: "​Video Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    28.7741935484%, 28.9882473118% {
+      content: "​Video Rend";
+      content: "​Video Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    28.9892473118%, 29.2033010753% {
+      content: "​Video Rende";
+      content: "​Video Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    29.2043010753%, 29.4183548387% {
+      content: "​Video Render";
+      content: "​Video Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    29.4193548387%, 29.6334086022% {
+      content: "​Video Renderi";
+      content: "​Video Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    29.6344086022%, 29.8484623656% {
+      content: "​Video Renderin";
+      content: "​Video Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    29.8494623656%, 34.5366344086% {
+      content: "​Video Rendering";
+      content: "​Video Rendering"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    34.5376344086%, 34.7086774194% {
+      content: "​Video Renderin";
+      content: "​Video Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    34.7096774194%, 34.8807204301% {
+      content: "​Video Renderi";
+      content: "​Video Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    34.8817204301%, 35.0527634409% {
+      content: "​Video Render";
+      content: "​Video Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    35.0537634409%, 35.2248064516% {
+      content: "​Video Rende";
+      content: "​Video Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    35.2258064516%, 35.3968494624% {
+      content: "​Video Rend";
+      content: "​Video Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    35.3978494624%, 35.5688924731% {
+      content: "​Video Ren";
+      content: "​Video Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    35.5698924731%, 35.7409354839% {
+      content: "​Video Re";
+      content: "​Video Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    35.7419354839%, 35.9129784946% {
+      content: "​Video R";
+      content: "​Video R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    35.9139784946%, 36.0850215054% {
+      content: "​Video ";
+      content: "​Video "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    36.0860215054%, 36.2570645161% {
+      content: "​Video";
+      content: "​Video"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    36.2580645161%, 36.4291075269% {
+      content: "​Vide";
+      content: "​Vide"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    36.4301075269%, 36.6011505376% {
+      content: "​Vid";
+      content: "​Vid"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    36.6021505376%, 36.7731935484% {
+      content: "​Vi";
+      content: "​Vi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    36.7741935484%, 36.9452365591% {
+      content: "​V";
+      content: "​V"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    36.9462365591%, 39.0957741935% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    39.0967741935%, 39.310827957% {
+      content: "​P";
+      content: "​P"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    39.311827957%, 39.5258817204% {
+      content: "​Pr";
+      content: "​Pr"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    39.5268817204%, 39.7409354839% {
+      content: "​Pro";
+      content: "​Pro"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    39.7419354839%, 39.9559892473% {
+      content: "​Prod";
+      content: "​Prod"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    39.9569892473%, 40.1710430108% {
+      content: "​Produ";
+      content: "​Produ"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    40.1720430108%, 40.3860967742% {
+      content: "​Produc";
+      content: "​Produc"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    40.3870967742%, 40.6011505376% {
+      content: "​Product";
+      content: "​Product"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    40.6021505376%, 40.8162043011% {
+      content: "​Product ";
+      content: "​Product "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    40.8172043011%, 41.0312580645% {
+      content: "​Product R";
+      content: "​Product R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    41.0322580645%, 41.246311828% {
+      content: "​Product Re";
+      content: "​Product Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    41.247311828%, 41.4613655914% {
+      content: "​Product Ren";
+      content: "​Product Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    41.4623655914%, 41.6764193548% {
+      content: "​Product Rend";
+      content: "​Product Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    41.6774193548%, 41.8914731183% {
+      content: "​Product Rende";
+      content: "​Product Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    41.8924731183%, 42.1065268817% {
+      content: "​Product Render";
+      content: "​Product Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    42.1075268817%, 42.3215806452% {
+      content: "​Product Renderi";
+      content: "​Product Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    42.3225806452%, 42.5366344086% {
+      content: "​Product Renderin";
+      content: "​Product Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    42.5376344086%, 47.2248064516% {
+      content: "​Product Rendering";
+      content: "​Product Rendering"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    47.2258064516%, 47.3968494624% {
+      content: "​Product Renderin";
+      content: "​Product Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    47.3978494624%, 47.5688924731% {
+      content: "​Product Renderi";
+      content: "​Product Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    47.5698924731%, 47.7409354839% {
+      content: "​Product Render";
+      content: "​Product Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    47.7419354839%, 47.9129784946% {
+      content: "​Product Rende";
+      content: "​Product Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    47.9139784946%, 48.0850215054% {
+      content: "​Product Rend";
+      content: "​Product Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    48.0860215054%, 48.2570645161% {
+      content: "​Product Ren";
+      content: "​Product Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    48.2580645161%, 48.4291075269% {
+      content: "​Product Re";
+      content: "​Product Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    48.4301075269%, 48.6011505376% {
+      content: "​Product R";
+      content: "​Product R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    48.6021505376%, 48.7731935484% {
+      content: "​Product ";
+      content: "​Product "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    48.7741935484%, 48.9452365591% {
+      content: "​Product";
+      content: "​Product"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    48.9462365591%, 49.1172795699% {
+      content: "​Produc";
+      content: "​Produc"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    49.1182795699%, 49.2893225806% {
+      content: "​Produ";
+      content: "​Produ"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    49.2903225806%, 49.4613655914% {
+      content: "​Prod";
+      content: "​Prod"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    49.4623655914%, 49.6334086022% {
+      content: "​Pro";
+      content: "​Pro"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    49.6344086022%, 49.8054516129% {
+      content: "​Pr";
+      content: "​Pr"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    49.8064516129%, 49.9774946237% {
+      content: "​P";
+      content: "​P"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    49.9784946237%, 52.1280322581% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    52.1290322581%, 52.3430860215% {
+      content: "​L";
+      content: "​L"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    52.3440860215%, 52.5581397849% {
+      content: "​La";
+      content: "​La"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    52.5591397849%, 52.7731935484% {
+      content: "​Lan";
+      content: "​Lan"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    52.7741935484%, 52.9882473118% {
+      content: "​Land";
+      content: "​Land"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    52.9892473118%, 53.2033010753% {
+      content: "​Lands";
+      content: "​Lands"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    53.2043010753%, 53.4183548387% {
+      content: "​Landsc";
+      content: "​Landsc"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    53.4193548387%, 53.6334086022% {
+      content: "​Landsca";
+      content: "​Landsca"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    53.6344086022%, 53.8484623656% {
+      content: "​Landscap";
+      content: "​Landscap"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    53.8494623656%, 54.063516129% {
+      content: "​Landscape";
+      content: "​Landscape"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    54.064516129%, 54.2785698925% {
+      content: "​Landscape ";
+      content: "​Landscape "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    54.2795698925%, 54.4936236559% {
+      content: "​Landscape D";
+      content: "​Landscape D"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    54.4946236559%, 54.7086774194% {
+      content: "​Landscape De";
+      content: "​Landscape De"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    54.7096774194%, 54.9237311828% {
+      content: "​Landscape Des";
+      content: "​Landscape Des"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    54.9247311828%, 55.1387849462% {
+      content: "​Landscape Desi";
+      content: "​Landscape Desi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    55.1397849462%, 55.3538387097% {
+      content: "​Landscape Desig";
+      content: "​Landscape Desig"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    55.3548387097%, 55.5688924731% {
+      content: "​Landscape Design";
+      content: "​Landscape Design"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    55.5698924731%, 60.2570645161% {
+      content: "​Landscape Designs";
+      content: "​Landscape Designs"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    60.2580645161%, 60.4291075269% {
+      content: "​Landscape Design";
+      content: "​Landscape Design"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    60.4301075269%, 60.6011505376% {
+      content: "​Landscape Desig";
+      content: "​Landscape Desig"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    60.6021505376%, 60.7731935484% {
+      content: "​Landscape Desi";
+      content: "​Landscape Desi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    60.7741935484%, 60.9452365591% {
+      content: "​Landscape Des";
+      content: "​Landscape Des"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    60.9462365591%, 61.1172795699% {
+      content: "​Landscape De";
+      content: "​Landscape De"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    61.1182795699%, 61.2893225806% {
+      content: "​Landscape D";
+      content: "​Landscape D"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    61.2903225806%, 61.4613655914% {
+      content: "​Landscape ";
+      content: "​Landscape "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    61.4623655914%, 61.6334086022% {
+      content: "​Landscape";
+      content: "​Landscape"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    61.6344086022%, 61.8054516129% {
+      content: "​Landscap";
+      content: "​Landscap"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    61.8064516129%, 61.9774946237% {
+      content: "​Landsca";
+      content: "​Landsca"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    61.9784946237%, 62.1495376344% {
+      content: "​Landsc";
+      content: "​Landsc"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    62.1505376344%, 62.3215806452% {
+      content: "​Lands";
+      content: "​Lands"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    62.3225806452%, 62.4936236559% {
+      content: "​Land";
+      content: "​Land"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    62.4946236559%, 62.6656666667% {
+      content: "​Lan";
+      content: "​Lan"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    62.6666666667%, 62.8377096774% {
+      content: "​La";
+      content: "​La"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    62.8387096774%, 63.0097526882% {
+      content: "​L";
+      content: "​L"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    63.0107526882%, 65.1602903226% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    65.1612903226%, 65.375344086% {
+      content: "​3";
+      content: "​3"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    65.376344086%, 65.5903978495% {
+      content: "​36";
+      content: "​36"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    65.5913978495%, 65.8054516129% {
+      content: "​360";
+      content: "​360"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    65.8064516129%, 66.0205053763% {
+      content: "​360 ";
+      content: "​360 "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    66.0215053763%, 66.2355591398% {
+      content: "​360 W";
+      content: "​360 W"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    66.2365591398%, 66.4506129032% {
+      content: "​360 Wa";
+      content: "​360 Wa"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    66.4516129032%, 66.6656666667% {
+      content: "​360 Wal";
+      content: "​360 Wal"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    66.6666666667%, 66.8807204301% {
+      content: "​360 Walk";
+      content: "​360 Walk"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    66.8817204301%, 67.0957741935% {
+      content: "​360 Walkt";
+      content: "​360 Walkt"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    67.0967741935%, 67.310827957% {
+      content: "​360 Walkth";
+      content: "​360 Walkth"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    67.311827957%, 67.5258817204% {
+      content: "​360 Walkthr";
+      content: "​360 Walkthr"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    67.5268817204%, 67.7409354839% {
+      content: "​360 Walkthro";
+      content: "​360 Walkthro"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    67.7419354839%, 67.9559892473% {
+      content: "​360 Walkthrou";
+      content: "​360 Walkthrou"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    67.9569892473%, 68.1710430108% {
+      content: "​360 Walkthroug";
+      content: "​360 Walkthroug"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    68.1720430108%, 68.3860967742% {
+      content: "​360 Walkthrough";
+      content: "​360 Walkthrough"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    68.3870967742%, 73.0742688172% {
+      content: "​360 Walkthroughs";
+      content: "​360 Walkthroughs"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    73.0752688172%, 73.246311828% {
+      content: "​360 Walkthrough";
+      content: "​360 Walkthrough"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    73.247311828%, 73.4183548387% {
+      content: "​360 Walkthroug";
+      content: "​360 Walkthroug"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    73.4193548387%, 73.5903978495% {
+      content: "​360 Walkthrou";
+      content: "​360 Walkthrou"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    73.5913978495%, 73.7624408602% {
+      content: "​360 Walkthro";
+      content: "​360 Walkthro"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    73.7634408602%, 73.934483871% {
+      content: "​360 Walkthr";
+      content: "​360 Walkthr"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    73.935483871%, 74.1065268817% {
+      content: "​360 Walkth";
+      content: "​360 Walkth"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    74.1075268817%, 74.2785698925% {
+      content: "​360 Walkt";
+      content: "​360 Walkt"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    74.2795698925%, 74.4506129032% {
+      content: "​360 Walk";
+      content: "​360 Walk"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    74.4516129032%, 74.622655914% {
+      content: "​360 Wal";
+      content: "​360 Wal"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    74.623655914%, 74.7946989247% {
+      content: "​360 Wa";
+      content: "​360 Wa"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    74.7956989247%, 74.9667419355% {
+      content: "​360 W";
+      content: "​360 W"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    74.9677419355%, 75.1387849462% {
+      content: "​360 ";
+      content: "​360 "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    75.1397849462%, 75.310827957% {
+      content: "​360";
+      content: "​360"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    75.311827957%, 75.4828709677% {
+      content: "​36";
+      content: "​36"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    75.4838709677%, 75.6549139785% {
+      content: "​3";
+      content: "​3"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    75.6559139785%, 77.8054516129% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    77.8064516129%, 78.0205053763% {
+      content: "​I";
+      content: "​I"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    78.0215053763%, 78.2355591398% {
+      content: "​Is";
+      content: "​Is"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    78.2365591398%, 78.4506129032% {
+      content: "​Iso";
+      content: "​Iso"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    78.4516129032%, 78.6656666667% {
+      content: "​Isom";
+      content: "​Isom"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    78.6666666667%, 78.8807204301% {
+      content: "​Isome";
+      content: "​Isome"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    78.8817204301%, 79.0957741935% {
+      content: "​Isomet";
+      content: "​Isomet"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    79.0967741935%, 79.310827957% {
+      content: "​Isometr";
+      content: "​Isometr"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    79.311827957%, 79.5258817204% {
+      content: "​Isometri";
+      content: "​Isometri"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    79.5268817204%, 79.7409354839% {
+      content: "​Isometric";
+      content: "​Isometric"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    79.7419354839%, 79.9559892473% {
+      content: "​Isometric ";
+      content: "​Isometric "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    79.9569892473%, 80.1710430108% {
+      content: "​Isometric D";
+      content: "​Isometric D"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    80.1720430108%, 80.3860967742% {
+      content: "​Isometric De";
+      content: "​Isometric De"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    80.3870967742%, 80.6011505376% {
+      content: "​Isometric Des";
+      content: "​Isometric Des"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    80.6021505376%, 80.8162043011% {
+      content: "​Isometric Desi";
+      content: "​Isometric Desi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    80.8172043011%, 81.0312580645% {
+      content: "​Isometric Desig";
+      content: "​Isometric Desig"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    81.0322580645%, 81.246311828% {
+      content: "​Isometric Design";
+      content: "​Isometric Design"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    81.247311828%, 85.934483871% {
+      content: "​Isometric Designs";
+      content: "​Isometric Designs"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    85.935483871%, 86.1065268817% {
+      content: "​Isometric Design";
+      content: "​Isometric Design"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    86.1075268817%, 86.2785698925% {
+      content: "​Isometric Desig";
+      content: "​Isometric Desig"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    86.2795698925%, 86.4506129032% {
+      content: "​Isometric Desi";
+      content: "​Isometric Desi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    86.4516129032%, 86.622655914% {
+      content: "​Isometric Des";
+      content: "​Isometric Des"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    86.623655914%, 86.7946989247% {
+      content: "​Isometric De";
+      content: "​Isometric De"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    86.7956989247%, 86.9667419355% {
+      content: "​Isometric D";
+      content: "​Isometric D"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    86.9677419355%, 87.1387849462% {
+      content: "​Isometric ";
+      content: "​Isometric "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    87.1397849462%, 87.310827957% {
+      content: "​Isometric";
+      content: "​Isometric"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    87.311827957%, 87.4828709677% {
+      content: "​Isometri";
+      content: "​Isometri"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    87.4838709677%, 87.6549139785% {
+      content: "​Isometr";
+      content: "​Isometr"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    87.6559139785%, 87.8269569892% {
+      content: "​Isomet";
+      content: "​Isomet"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    87.8279569892%, 87.999% {
+      content: "​Isome";
+      content: "​Isome"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    88%, 88.1710430108% {
+      content: "​Isom";
+      content: "​Isom"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    88.1720430108%, 88.3430860215% {
+      content: "​Iso";
+      content: "​Iso"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    88.3440860215%, 88.5151290323% {
+      content: "​Is";
+      content: "​Is"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    88.5161290323%, 88.687172043% {
+      content: "​I";
+      content: "​I"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    88.688172043%, 90.8377096774% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    90.8387096774%, 91.0527634409% {
+      content: "​A";
+      content: "​A"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    91.0537634409%, 91.2678172043% {
+      content: "​AR";
+      content: "​AR"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    91.2688172043%, 91.4828709677% {
+      content: "​AR ";
+      content: "​AR "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    91.4838709677%, 91.6979247312% {
+      content: "​AR /";
+      content: "​AR /"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    91.6989247312%, 91.9129784946% {
+      content: "​AR / ";
+      content: "​AR / "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    91.9139784946%, 92.1280322581% {
+      content: "​AR / V";
+      content: "​AR / V"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    92.1290322581%, 96.8162043011% {
+      content: "​AR / VR";
+      content: "​AR / VR"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    96.8172043011%, 96.9882473118% {
+      content: "​AR / V";
+      content: "​AR / V"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    96.9892473118%, 97.1602903226% {
+      content: "​AR / ";
+      content: "​AR / "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    97.1612903226%, 97.3323333333% {
+      content: "​AR /";
+      content: "​AR /"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    97.3333333333%, 97.5043763441% {
+      content: "​AR ";
+      content: "​AR "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    97.5053763441%, 97.6764193548% {
+      content: "​AR";
+      content: "​AR"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    97.6774193548%, 97.8484623656% {
+      content: "​A";
+      content: "​A"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    97.8494623656%, 100% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
   }
-  .draw-container .stars .star.three {
-    top: 50%;
-    left: 50%;
+  @keyframes typed-0 {
+    0%, 0.2140537634% {
+      content: "​I";
+      content: "​I"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    0.2150537634%, 0.4291075269% {
+      content: "​In";
+      content: "​In"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    0.4301075269%, 0.6441612903% {
+      content: "​Int";
+      content: "​Int"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    0.6451612903%, 0.8592150538% {
+      content: "​Inte";
+      content: "​Inte"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    0.8602150538%, 1.0742688172% {
+      content: "​Inter";
+      content: "​Inter"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    1.0752688172%, 1.2893225806% {
+      content: "​Interi";
+      content: "​Interi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    1.2903225806%, 1.5043763441% {
+      content: "​Interio";
+      content: "​Interio"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    1.5053763441%, 1.7194301075% {
+      content: "​Interior";
+      content: "​Interior"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    1.7204301075%, 1.934483871% {
+      content: "​Interior ";
+      content: "​Interior "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    1.935483871%, 2.1495376344% {
+      content: "​Interior R";
+      content: "​Interior R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    2.1505376344%, 2.3645913978% {
+      content: "​Interior Re";
+      content: "​Interior Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    2.3655913978%, 2.5796451613% {
+      content: "​Interior Ren";
+      content: "​Interior Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    2.5806451613%, 2.7946989247% {
+      content: "​Interior Rend";
+      content: "​Interior Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    2.7956989247%, 3.0097526882% {
+      content: "​Interior Rende";
+      content: "​Interior Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    3.0107526882%, 3.2248064516% {
+      content: "​Interior Render";
+      content: "​Interior Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    3.2258064516%, 3.4398602151% {
+      content: "​Interior Renderi";
+      content: "​Interior Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    3.4408602151%, 3.6549139785% {
+      content: "​Interior Renderin";
+      content: "​Interior Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    3.6559139785%, 8.3430860215% {
+      content: "​Interior Rendering";
+      content: "​Interior Rendering"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    8.3440860215%, 8.5151290323% {
+      content: "​Interior Renderin";
+      content: "​Interior Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    8.5161290323%, 8.687172043% {
+      content: "​Interior Renderi";
+      content: "​Interior Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    8.688172043%, 8.8592150538% {
+      content: "​Interior Render";
+      content: "​Interior Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    8.8602150538%, 9.0312580645% {
+      content: "​Interior Rende";
+      content: "​Interior Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    9.0322580645%, 9.2033010753% {
+      content: "​Interior Rend";
+      content: "​Interior Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    9.2043010753%, 9.375344086% {
+      content: "​Interior Ren";
+      content: "​Interior Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    9.376344086%, 9.5473870968% {
+      content: "​Interior Re";
+      content: "​Interior Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    9.5483870968%, 9.7194301075% {
+      content: "​Interior R";
+      content: "​Interior R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    9.7204301075%, 9.8914731183% {
+      content: "​Interior ";
+      content: "​Interior "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    9.8924731183%, 10.063516129% {
+      content: "​Interior";
+      content: "​Interior"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    10.064516129%, 10.2355591398% {
+      content: "​Interio";
+      content: "​Interio"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    10.2365591398%, 10.4076021505% {
+      content: "​Interi";
+      content: "​Interi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    10.4086021505%, 10.5796451613% {
+      content: "​Inter";
+      content: "​Inter"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    10.5806451613%, 10.751688172% {
+      content: "​Inte";
+      content: "​Inte"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    10.752688172%, 10.9237311828% {
+      content: "​Int";
+      content: "​Int"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    10.9247311828%, 11.0957741935% {
+      content: "​In";
+      content: "​In"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    11.0967741935%, 11.2678172043% {
+      content: "​I";
+      content: "​I"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    11.2688172043%, 13.4183548387% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    13.4193548387%, 13.6334086022% {
+      content: "​E";
+      content: "​E"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    13.6344086022%, 13.8484623656% {
+      content: "​Ex";
+      content: "​Ex"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    13.8494623656%, 14.063516129% {
+      content: "​Ext";
+      content: "​Ext"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    14.064516129%, 14.2785698925% {
+      content: "​Exte";
+      content: "​Exte"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    14.2795698925%, 14.4936236559% {
+      content: "​Exter";
+      content: "​Exter"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    14.4946236559%, 14.7086774194% {
+      content: "​Exteri";
+      content: "​Exteri"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    14.7096774194%, 14.9237311828% {
+      content: "​Exterio";
+      content: "​Exterio"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    14.9247311828%, 15.1387849462% {
+      content: "​Exterior";
+      content: "​Exterior"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    15.1397849462%, 15.3538387097% {
+      content: "​Exterior ";
+      content: "​Exterior "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    15.3548387097%, 15.5688924731% {
+      content: "​Exterior R";
+      content: "​Exterior R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    15.5698924731%, 15.7839462366% {
+      content: "​Exterior Re";
+      content: "​Exterior Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    15.7849462366%, 15.999% {
+      content: "​Exterior Ren";
+      content: "​Exterior Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    16%, 16.2140537634% {
+      content: "​Exterior Rend";
+      content: "​Exterior Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    16.2150537634%, 16.4291075269% {
+      content: "​Exterior Rende";
+      content: "​Exterior Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    16.4301075269%, 16.6441612903% {
+      content: "​Exterior Render";
+      content: "​Exterior Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    16.6451612903%, 16.8592150538% {
+      content: "​Exterior Renderi";
+      content: "​Exterior Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    16.8602150538%, 17.0742688172% {
+      content: "​Exterior Renderin";
+      content: "​Exterior Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    17.0752688172%, 21.7624408602% {
+      content: "​Exterior Rendering";
+      content: "​Exterior Rendering"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    21.7634408602%, 21.934483871% {
+      content: "​Exterior Renderin";
+      content: "​Exterior Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    21.935483871%, 22.1065268817% {
+      content: "​Exterior Renderi";
+      content: "​Exterior Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    22.1075268817%, 22.2785698925% {
+      content: "​Exterior Render";
+      content: "​Exterior Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    22.2795698925%, 22.4506129032% {
+      content: "​Exterior Rende";
+      content: "​Exterior Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    22.4516129032%, 22.622655914% {
+      content: "​Exterior Rend";
+      content: "​Exterior Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    22.623655914%, 22.7946989247% {
+      content: "​Exterior Ren";
+      content: "​Exterior Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    22.7956989247%, 22.9667419355% {
+      content: "​Exterior Re";
+      content: "​Exterior Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    22.9677419355%, 23.1387849462% {
+      content: "​Exterior R";
+      content: "​Exterior R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    23.1397849462%, 23.310827957% {
+      content: "​Exterior ";
+      content: "​Exterior "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    23.311827957%, 23.4828709677% {
+      content: "​Exterior";
+      content: "​Exterior"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    23.4838709677%, 23.6549139785% {
+      content: "​Exterio";
+      content: "​Exterio"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    23.6559139785%, 23.8269569892% {
+      content: "​Exteri";
+      content: "​Exteri"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    23.8279569892%, 23.999% {
+      content: "​Exter";
+      content: "​Exter"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    24%, 24.1710430108% {
+      content: "​Exte";
+      content: "​Exte"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    24.1720430108%, 24.3430860215% {
+      content: "​Ext";
+      content: "​Ext"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    24.3440860215%, 24.5151290323% {
+      content: "​Ex";
+      content: "​Ex"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    24.5161290323%, 24.687172043% {
+      content: "​E";
+      content: "​E"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    24.688172043%, 26.8377096774% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    26.8387096774%, 27.0527634409% {
+      content: "​V";
+      content: "​V"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    27.0537634409%, 27.2678172043% {
+      content: "​Vi";
+      content: "​Vi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    27.2688172043%, 27.4828709677% {
+      content: "​Vid";
+      content: "​Vid"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    27.4838709677%, 27.6979247312% {
+      content: "​Vide";
+      content: "​Vide"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    27.6989247312%, 27.9129784946% {
+      content: "​Video";
+      content: "​Video"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    27.9139784946%, 28.1280322581% {
+      content: "​Video ";
+      content: "​Video "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    28.1290322581%, 28.3430860215% {
+      content: "​Video R";
+      content: "​Video R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    28.3440860215%, 28.5581397849% {
+      content: "​Video Re";
+      content: "​Video Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    28.5591397849%, 28.7731935484% {
+      content: "​Video Ren";
+      content: "​Video Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    28.7741935484%, 28.9882473118% {
+      content: "​Video Rend";
+      content: "​Video Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    28.9892473118%, 29.2033010753% {
+      content: "​Video Rende";
+      content: "​Video Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    29.2043010753%, 29.4183548387% {
+      content: "​Video Render";
+      content: "​Video Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    29.4193548387%, 29.6334086022% {
+      content: "​Video Renderi";
+      content: "​Video Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    29.6344086022%, 29.8484623656% {
+      content: "​Video Renderin";
+      content: "​Video Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    29.8494623656%, 34.5366344086% {
+      content: "​Video Rendering";
+      content: "​Video Rendering"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    34.5376344086%, 34.7086774194% {
+      content: "​Video Renderin";
+      content: "​Video Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    34.7096774194%, 34.8807204301% {
+      content: "​Video Renderi";
+      content: "​Video Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    34.8817204301%, 35.0527634409% {
+      content: "​Video Render";
+      content: "​Video Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    35.0537634409%, 35.2248064516% {
+      content: "​Video Rende";
+      content: "​Video Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    35.2258064516%, 35.3968494624% {
+      content: "​Video Rend";
+      content: "​Video Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    35.3978494624%, 35.5688924731% {
+      content: "​Video Ren";
+      content: "​Video Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    35.5698924731%, 35.7409354839% {
+      content: "​Video Re";
+      content: "​Video Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    35.7419354839%, 35.9129784946% {
+      content: "​Video R";
+      content: "​Video R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    35.9139784946%, 36.0850215054% {
+      content: "​Video ";
+      content: "​Video "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    36.0860215054%, 36.2570645161% {
+      content: "​Video";
+      content: "​Video"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    36.2580645161%, 36.4291075269% {
+      content: "​Vide";
+      content: "​Vide"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    36.4301075269%, 36.6011505376% {
+      content: "​Vid";
+      content: "​Vid"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    36.6021505376%, 36.7731935484% {
+      content: "​Vi";
+      content: "​Vi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    36.7741935484%, 36.9452365591% {
+      content: "​V";
+      content: "​V"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    36.9462365591%, 39.0957741935% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    39.0967741935%, 39.310827957% {
+      content: "​P";
+      content: "​P"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    39.311827957%, 39.5258817204% {
+      content: "​Pr";
+      content: "​Pr"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    39.5268817204%, 39.7409354839% {
+      content: "​Pro";
+      content: "​Pro"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    39.7419354839%, 39.9559892473% {
+      content: "​Prod";
+      content: "​Prod"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    39.9569892473%, 40.1710430108% {
+      content: "​Produ";
+      content: "​Produ"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    40.1720430108%, 40.3860967742% {
+      content: "​Produc";
+      content: "​Produc"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    40.3870967742%, 40.6011505376% {
+      content: "​Product";
+      content: "​Product"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    40.6021505376%, 40.8162043011% {
+      content: "​Product ";
+      content: "​Product "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    40.8172043011%, 41.0312580645% {
+      content: "​Product R";
+      content: "​Product R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    41.0322580645%, 41.246311828% {
+      content: "​Product Re";
+      content: "​Product Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    41.247311828%, 41.4613655914% {
+      content: "​Product Ren";
+      content: "​Product Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    41.4623655914%, 41.6764193548% {
+      content: "​Product Rend";
+      content: "​Product Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    41.6774193548%, 41.8914731183% {
+      content: "​Product Rende";
+      content: "​Product Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    41.8924731183%, 42.1065268817% {
+      content: "​Product Render";
+      content: "​Product Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    42.1075268817%, 42.3215806452% {
+      content: "​Product Renderi";
+      content: "​Product Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    42.3225806452%, 42.5366344086% {
+      content: "​Product Renderin";
+      content: "​Product Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    42.5376344086%, 47.2248064516% {
+      content: "​Product Rendering";
+      content: "​Product Rendering"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    47.2258064516%, 47.3968494624% {
+      content: "​Product Renderin";
+      content: "​Product Renderin"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    47.3978494624%, 47.5688924731% {
+      content: "​Product Renderi";
+      content: "​Product Renderi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    47.5698924731%, 47.7409354839% {
+      content: "​Product Render";
+      content: "​Product Render"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    47.7419354839%, 47.9129784946% {
+      content: "​Product Rende";
+      content: "​Product Rende"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    47.9139784946%, 48.0850215054% {
+      content: "​Product Rend";
+      content: "​Product Rend"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    48.0860215054%, 48.2570645161% {
+      content: "​Product Ren";
+      content: "​Product Ren"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    48.2580645161%, 48.4291075269% {
+      content: "​Product Re";
+      content: "​Product Re"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    48.4301075269%, 48.6011505376% {
+      content: "​Product R";
+      content: "​Product R"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    48.6021505376%, 48.7731935484% {
+      content: "​Product ";
+      content: "​Product "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    48.7741935484%, 48.9452365591% {
+      content: "​Product";
+      content: "​Product"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    48.9462365591%, 49.1172795699% {
+      content: "​Produc";
+      content: "​Produc"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    49.1182795699%, 49.2893225806% {
+      content: "​Produ";
+      content: "​Produ"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    49.2903225806%, 49.4613655914% {
+      content: "​Prod";
+      content: "​Prod"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    49.4623655914%, 49.6334086022% {
+      content: "​Pro";
+      content: "​Pro"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    49.6344086022%, 49.8054516129% {
+      content: "​Pr";
+      content: "​Pr"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    49.8064516129%, 49.9774946237% {
+      content: "​P";
+      content: "​P"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    49.9784946237%, 52.1280322581% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    52.1290322581%, 52.3430860215% {
+      content: "​L";
+      content: "​L"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    52.3440860215%, 52.5581397849% {
+      content: "​La";
+      content: "​La"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    52.5591397849%, 52.7731935484% {
+      content: "​Lan";
+      content: "​Lan"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    52.7741935484%, 52.9882473118% {
+      content: "​Land";
+      content: "​Land"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    52.9892473118%, 53.2033010753% {
+      content: "​Lands";
+      content: "​Lands"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    53.2043010753%, 53.4183548387% {
+      content: "​Landsc";
+      content: "​Landsc"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    53.4193548387%, 53.6334086022% {
+      content: "​Landsca";
+      content: "​Landsca"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    53.6344086022%, 53.8484623656% {
+      content: "​Landscap";
+      content: "​Landscap"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    53.8494623656%, 54.063516129% {
+      content: "​Landscape";
+      content: "​Landscape"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    54.064516129%, 54.2785698925% {
+      content: "​Landscape ";
+      content: "​Landscape "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    54.2795698925%, 54.4936236559% {
+      content: "​Landscape D";
+      content: "​Landscape D"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    54.4946236559%, 54.7086774194% {
+      content: "​Landscape De";
+      content: "​Landscape De"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    54.7096774194%, 54.9237311828% {
+      content: "​Landscape Des";
+      content: "​Landscape Des"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    54.9247311828%, 55.1387849462% {
+      content: "​Landscape Desi";
+      content: "​Landscape Desi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    55.1397849462%, 55.3538387097% {
+      content: "​Landscape Desig";
+      content: "​Landscape Desig"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    55.3548387097%, 55.5688924731% {
+      content: "​Landscape Design";
+      content: "​Landscape Design"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    55.5698924731%, 60.2570645161% {
+      content: "​Landscape Designs";
+      content: "​Landscape Designs"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    60.2580645161%, 60.4291075269% {
+      content: "​Landscape Design";
+      content: "​Landscape Design"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    60.4301075269%, 60.6011505376% {
+      content: "​Landscape Desig";
+      content: "​Landscape Desig"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    60.6021505376%, 60.7731935484% {
+      content: "​Landscape Desi";
+      content: "​Landscape Desi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    60.7741935484%, 60.9452365591% {
+      content: "​Landscape Des";
+      content: "​Landscape Des"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    60.9462365591%, 61.1172795699% {
+      content: "​Landscape De";
+      content: "​Landscape De"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    61.1182795699%, 61.2893225806% {
+      content: "​Landscape D";
+      content: "​Landscape D"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    61.2903225806%, 61.4613655914% {
+      content: "​Landscape ";
+      content: "​Landscape "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    61.4623655914%, 61.6334086022% {
+      content: "​Landscape";
+      content: "​Landscape"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    61.6344086022%, 61.8054516129% {
+      content: "​Landscap";
+      content: "​Landscap"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    61.8064516129%, 61.9774946237% {
+      content: "​Landsca";
+      content: "​Landsca"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    61.9784946237%, 62.1495376344% {
+      content: "​Landsc";
+      content: "​Landsc"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    62.1505376344%, 62.3215806452% {
+      content: "​Lands";
+      content: "​Lands"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    62.3225806452%, 62.4936236559% {
+      content: "​Land";
+      content: "​Land"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    62.4946236559%, 62.6656666667% {
+      content: "​Lan";
+      content: "​Lan"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    62.6666666667%, 62.8377096774% {
+      content: "​La";
+      content: "​La"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    62.8387096774%, 63.0097526882% {
+      content: "​L";
+      content: "​L"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    63.0107526882%, 65.1602903226% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    65.1612903226%, 65.375344086% {
+      content: "​3";
+      content: "​3"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    65.376344086%, 65.5903978495% {
+      content: "​36";
+      content: "​36"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    65.5913978495%, 65.8054516129% {
+      content: "​360";
+      content: "​360"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    65.8064516129%, 66.0205053763% {
+      content: "​360 ";
+      content: "​360 "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    66.0215053763%, 66.2355591398% {
+      content: "​360 W";
+      content: "​360 W"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    66.2365591398%, 66.4506129032% {
+      content: "​360 Wa";
+      content: "​360 Wa"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    66.4516129032%, 66.6656666667% {
+      content: "​360 Wal";
+      content: "​360 Wal"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    66.6666666667%, 66.8807204301% {
+      content: "​360 Walk";
+      content: "​360 Walk"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    66.8817204301%, 67.0957741935% {
+      content: "​360 Walkt";
+      content: "​360 Walkt"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    67.0967741935%, 67.310827957% {
+      content: "​360 Walkth";
+      content: "​360 Walkth"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    67.311827957%, 67.5258817204% {
+      content: "​360 Walkthr";
+      content: "​360 Walkthr"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    67.5268817204%, 67.7409354839% {
+      content: "​360 Walkthro";
+      content: "​360 Walkthro"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    67.7419354839%, 67.9559892473% {
+      content: "​360 Walkthrou";
+      content: "​360 Walkthrou"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    67.9569892473%, 68.1710430108% {
+      content: "​360 Walkthroug";
+      content: "​360 Walkthroug"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    68.1720430108%, 68.3860967742% {
+      content: "​360 Walkthrough";
+      content: "​360 Walkthrough"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    68.3870967742%, 73.0742688172% {
+      content: "​360 Walkthroughs";
+      content: "​360 Walkthroughs"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    73.0752688172%, 73.246311828% {
+      content: "​360 Walkthrough";
+      content: "​360 Walkthrough"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    73.247311828%, 73.4183548387% {
+      content: "​360 Walkthroug";
+      content: "​360 Walkthroug"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    73.4193548387%, 73.5903978495% {
+      content: "​360 Walkthrou";
+      content: "​360 Walkthrou"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    73.5913978495%, 73.7624408602% {
+      content: "​360 Walkthro";
+      content: "​360 Walkthro"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    73.7634408602%, 73.934483871% {
+      content: "​360 Walkthr";
+      content: "​360 Walkthr"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    73.935483871%, 74.1065268817% {
+      content: "​360 Walkth";
+      content: "​360 Walkth"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    74.1075268817%, 74.2785698925% {
+      content: "​360 Walkt";
+      content: "​360 Walkt"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    74.2795698925%, 74.4506129032% {
+      content: "​360 Walk";
+      content: "​360 Walk"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    74.4516129032%, 74.622655914% {
+      content: "​360 Wal";
+      content: "​360 Wal"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    74.623655914%, 74.7946989247% {
+      content: "​360 Wa";
+      content: "​360 Wa"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    74.7956989247%, 74.9667419355% {
+      content: "​360 W";
+      content: "​360 W"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    74.9677419355%, 75.1387849462% {
+      content: "​360 ";
+      content: "​360 "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    75.1397849462%, 75.310827957% {
+      content: "​360";
+      content: "​360"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    75.311827957%, 75.4828709677% {
+      content: "​36";
+      content: "​36"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    75.4838709677%, 75.6549139785% {
+      content: "​3";
+      content: "​3"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    75.6559139785%, 77.8054516129% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    77.8064516129%, 78.0205053763% {
+      content: "​I";
+      content: "​I"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    78.0215053763%, 78.2355591398% {
+      content: "​Is";
+      content: "​Is"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    78.2365591398%, 78.4506129032% {
+      content: "​Iso";
+      content: "​Iso"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    78.4516129032%, 78.6656666667% {
+      content: "​Isom";
+      content: "​Isom"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    78.6666666667%, 78.8807204301% {
+      content: "​Isome";
+      content: "​Isome"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    78.8817204301%, 79.0957741935% {
+      content: "​Isomet";
+      content: "​Isomet"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    79.0967741935%, 79.310827957% {
+      content: "​Isometr";
+      content: "​Isometr"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    79.311827957%, 79.5258817204% {
+      content: "​Isometri";
+      content: "​Isometri"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    79.5268817204%, 79.7409354839% {
+      content: "​Isometric";
+      content: "​Isometric"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    79.7419354839%, 79.9559892473% {
+      content: "​Isometric ";
+      content: "​Isometric "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    79.9569892473%, 80.1710430108% {
+      content: "​Isometric D";
+      content: "​Isometric D"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    80.1720430108%, 80.3860967742% {
+      content: "​Isometric De";
+      content: "​Isometric De"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    80.3870967742%, 80.6011505376% {
+      content: "​Isometric Des";
+      content: "​Isometric Des"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    80.6021505376%, 80.8162043011% {
+      content: "​Isometric Desi";
+      content: "​Isometric Desi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    80.8172043011%, 81.0312580645% {
+      content: "​Isometric Desig";
+      content: "​Isometric Desig"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    81.0322580645%, 81.246311828% {
+      content: "​Isometric Design";
+      content: "​Isometric Design"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    81.247311828%, 85.934483871% {
+      content: "​Isometric Designs";
+      content: "​Isometric Designs"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    85.935483871%, 86.1065268817% {
+      content: "​Isometric Design";
+      content: "​Isometric Design"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    86.1075268817%, 86.2785698925% {
+      content: "​Isometric Desig";
+      content: "​Isometric Desig"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    86.2795698925%, 86.4506129032% {
+      content: "​Isometric Desi";
+      content: "​Isometric Desi"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    86.4516129032%, 86.622655914% {
+      content: "​Isometric Des";
+      content: "​Isometric Des"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    86.623655914%, 86.7946989247% {
+      content: "​Isometric De";
+      content: "​Isometric De"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    86.7956989247%, 86.9667419355% {
+      content: "​Isometric D";
+      content: "​Isometric D"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    86.9677419355%, 87.1387849462% {
+      content: "​Isometric ";
+      content: "​Isometric "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    87.1397849462%, 87.310827957% {
+      content: "​Isometric";
+      content: "​Isometric"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    87.311827957%, 87.4828709677% {
+      content: "​Isometri";
+      content: "​Isometri"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    87.4838709677%, 87.6549139785% {
+      content: "​Isometr";
+      content: "​Isometr"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    87.6559139785%, 87.8269569892% {
+      content: "​Isomet";
+      content: "​Isomet"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    87.8279569892%, 87.999% {
+      content: "​Isome";
+      content: "​Isome"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    88%, 88.1710430108% {
+      content: "​Isom";
+      content: "​Isom"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    88.1720430108%, 88.3430860215% {
+      content: "​Iso";
+      content: "​Iso"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    88.3440860215%, 88.5151290323% {
+      content: "​Is";
+      content: "​Is"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    88.5161290323%, 88.687172043% {
+      content: "​I";
+      content: "​I"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    88.688172043%, 90.8377096774% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    90.8387096774%, 91.0527634409% {
+      content: "​A";
+      content: "​A"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    91.0537634409%, 91.2678172043% {
+      content: "​AR";
+      content: "​AR"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    91.2688172043%, 91.4828709677% {
+      content: "​AR ";
+      content: "​AR "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    91.4838709677%, 91.6979247312% {
+      content: "​AR /";
+      content: "​AR /"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    91.6989247312%, 91.9129784946% {
+      content: "​AR / ";
+      content: "​AR / "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    91.9139784946%, 92.1280322581% {
+      content: "​AR / V";
+      content: "​AR / V"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    92.1290322581%, 96.8162043011% {
+      content: "​AR / VR";
+      content: "​AR / VR"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    96.8172043011%, 96.9882473118% {
+      content: "​AR / V";
+      content: "​AR / V"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    96.9892473118%, 97.1602903226% {
+      content: "​AR / ";
+      content: "​AR / "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    97.1612903226%, 97.3323333333% {
+      content: "​AR /";
+      content: "​AR /"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    97.3333333333%, 97.5043763441% {
+      content: "​AR ";
+      content: "​AR "/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    97.5053763441%, 97.6764193548% {
+      content: "​AR";
+      content: "​AR"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    97.6774193548%, 97.8484623656% {
+      content: "​A";
+      content: "​A"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
+    97.8494623656%, 100% {
+      content: "​";
+      content: "​"/"Interior Rendering";
+      alt: "Interior Rendering";
+    }
   }
-  .draw-container .stars .star.four {
-    top: 57%;
-    left: 70%;
+  @-webkit-keyframes typed-0-caret {
+    75% {
+      border-color: transparent;
+    }
   }
-  .draw-container .stars .star.five {
-    top: 25%;
-    left: 70%;
+  @keyframes typed-0-caret {
+    75% {
+      border-color: transparent;
+    }
   }
-  .draw-container .stars .star.six {
-    top: 15%;
-    left: 110%;
-  }
-  .draw-container .stars .star.seven {
-    top: 60%;
-    left: 120%;
-  }
-  .draw-container .stars .star.eight {
-    top: 75%;
-    left: -10%;
+  .input-wrapper > input:focus + .placeholder, .input-wrapper > input:active + .placeholder {
+    display: none;
   }
 
-  #stars {
-    overflow: hidden;
-    width: 1px;
-    height: 1px;
-    background: transparent;
-    box-shadow: 1920px 1878px #FFF , 318px 460px #FFF , 1805px 1021px #FFF , 853px 1402px #FFF , 627px 1037px #FFF , 1680px 1381px #FFF , 928px 583px #FFF , 583px 1280px #FFF , 920px 908px #000 , 1046px 1890px #000 , 496px 1792px #000 , 642px 554px #000 , 80px 107px #000 , 1673px 166px #000 , 1705px 443px #000 , 1477px 1449px #000 , 1865px 851px #000 , 1582px 540px #000 , 859px 160px #000 , 1510px 191px #000 , 1285px 449px #000 , 349px 732px #000 , 993px 1032px #000 , 1075px 303px #000 , 1792px 1676px #000 , 842px 1497px #000 , 1754px 1877px #000 , 1638px 784px #000 , 605px 965px #000 , 1668px 289px #000 , 1674px 593px #000 , 1621px 1331px #000 , 106px 1792px #000 , 1537px 518px #FFF , 799px 1775px #FFF , 813px 668px #FFF , 382px 842px #FFF , 535px 710px #FFF , 375px 1756px #FFF , 315px 290px #FFF , 332px 1199px #FFF , 926px 1262px #FFF , 1241px 1046px #FFF , 1255px 823px #FFF , 1597px 1557px #FFF , 585px 138px #FFF , 409px 1352px #FFF , 125px 1375px #FFF , 1062px 1821px #FFF , 1524px 360px #FFF , 299px 981px #FFF , 1963px 1951px #FFF , 1272px 1255px #FFF , 341px 1717px #FFF , 1522px 805px #000 , 169px 326px #000 , 260px 66px #000 , 1509px 1396px #000 , 196px 1931px #000 , 1374px 939px #000 , 878px 1747px #000 , 1696px 1504px #000 , 1882px 711px #000 , 1270px 633px #000 , 249px 143px #000 , 950px 320px #000 , 518px 224px #000 , 299px 409px #000 , 847px 280px #000 , 780px 382px #000 , 801px 577px #000 , 547px 379px #000 , 1715px 227px #000 , 1133px 1542px #000 , 1434px 942px #000 , 296px 1166px #000 , 1281px 1481px #000 , 690px 1390px #000 , 1167px 1919px #000 , 1131px 618px #000 , 1631px 1761px #000 , 1019px 1792px #000 , 1376px 1382px #000 , 484px 1995px #000 , 1610px 481px #000 , 112px 1491px #000 , 445px 1831px #000 , 1732px 158px #000 , 895px 885px #000 , 829px 1303px #000 , 190px 904px #000 , 1920px 1321px #000 , 1291px 1954px #000 , 1292px 1844px #000 , 1521px 1476px #000 , 888px 528px #000 , 1513px 1778px #000 , 45px 343px #000 , 1021px 1097px #000 , 743px 257px #000 , 427px 863px #000 , 1150px 1422px #000 , 895px 1066px #000 , 398px 1337px #000 , 1918px 861px #000 , 998px 1155px #000 , 1158px 1593px #000 , 559px 1451px #000 , 960px 1417px #000 , 1826px 699px #000 , 574px 1645px #000 , 484px 301px #000 , 1282px 988px #000 , 1096px 841px #000 , 1972px 1902px #000 , 292px 155px #000 , 622px 1970px #000 , 885px 671px #000 , 1840px 1346px #000 , 1690px 741px #000 , 536px 1388px #000 , 1545px 612px #000 , 726px 245px #000 , 1208px 511px #000 , 727px 1640px #000 , 895px 253px #000 , 1449px 592px #000 , 369px 760px #000 , 542px 1628px #000 , 672px 462px #000 , 1505px 630px #000 , 1399px 1727px #000 , 928px 199px #000 , 231px 422px #000 , 231px 652px #000 , 914px 1171px #000 , 83px 1989px #000 , 1041px 335px #000 , 898px 1059px #000 , 1096px 1592px #000 , 307px 1388px #000 , 871px 492px #000 , 1667px 552px #000 , 1398px 1830px #000 , 209px 265px #000 , 979px 1211px #000 , 38px 809px #000 , 1310px 1264px #000 , 1587px 632px #000 , 1985px 1656px #000 , 1668px 638px #000 , 1947px 696px #000 , 504px 450px #000 , 659px 276px #000 , 732px 348px #000 , 936px 1078px #000 , 1720px 1233px #000 , 1027px 342px #000 , 814px 502px #000 , 1744px 1147px #000 , 909px 1181px #000 , 1928px 3px #000 , 320px 822px #000 , 148px 1095px #000 , 1376px 384px #000 , 996px 1599px #000 , 559px 226px #000 , 1508px 672px #000 , 1342px 1092px #000 , 844px 127px #000 , 994px 1501px #000 , 1124px 1097px #000 , 591px 1766px #000 , 1444px 254px #000 , 71px 1561px #000 , 1735px 1668px #000 , 1533px 20px #000 , 1999px 211px #000 , 1726px 962px #000 , 810px 1247px #000 , 1834px 199px #000 , 1640px 669px #000 , 15px 916px #000 , 868px 1127px #000 , 1341px 829px #000 , 293px 262px #000 , 546px 1993px #000 , 166px 1738px #000 , 1978px 1615px #000 , 1297px 1216px #000 , 1136px 1738px #000 , 228px 797px #000 , 71px 1134px #000 , 705px 1794px #000 , 251px 1525px #000 , 1109px 684px #000 , 673px 122px #000 , 37px 1178px #000 , 1922px 1034px #000 , 1361px 132px #000 , 301px 276px #000 , 816px 374px #000 , 1965px 1760px #000 , 130px 1274px #000 , 1091px 980px #000 , 136px 1665px #000 , 1813px 919px #000 , 1603px 1023px #000 , 1143px 3px #000 , 1617px 809px #000 , 1458px 976px #000 , 65px 1994px #000 , 119px 1701px #000 , 1712px 975px #000 , 1491px 1067px #000 , 430px 1173px #000 , 1870px 1876px #000 , 1598px 82px #000 , 1160px 518px #000 , 702px 830px #000 , 1717px 1003px #000 , 1870px 1117px #000 , 559px 331px #000 , 1501px 731px #000 , 1384px 594px #000 , 944px 171px #000 , 1524px 1885px #000 , 743px 1878px #000 , 284px 1821px #000 , 906px 779px #000 , 408px 1895px #000 , 1001px 1780px #000 , 480px 216px #000 , 787px 838px #000 , 1212px 276px #000 , 656px 1725px #000 , 833px 1930px #000 , 59px 728px #000 , 576px 179px #000 , 1126px 48px #000 , 189px 1975px #000 , 473px 337px #000 , 348px 204px #000 , 1669px 1162px #000 , 123px 1770px #000 , 1634px 486px #000 , 1999px 297px #000 , 1780px 1642px #000 , 1049px 1365px #000 , 917px 1398px #000 , 674px 619px #000 , 1394px 601px #000 , 1166px 1004px #000 , 1750px 1887px #000 , 735px 843px #000 , 1742px 1685px #000 , 344px 279px #000 , 1640px 718px #000 , 952px 231px #000 , 1929px 1011px #000 , 10px 703px #000 , 357px 894px #000 , 82px 266px #000 , 219px 29px #000 , 534px 1452px #000 , 73px 1841px #000 , 1033px 1561px #000 , 753px 204px #000 , 1837px 1316px #000 , 1938px 1650px #000 , 1985px 898px #000 , 412px 1463px #000 , 1810px 1907px #000 , 1131px 1617px #000 , 1138px 661px #000 , 980px 661px #000 , 443px 1874px #000 , 824px 596px #000 , 1674px 1967px #000 , 1681px 1664px #000 , 395px 947px #000 , 1201px 407px #000 , 130px 1116px #000 , 718px 696px #000 , 1920px 842px #000 , 519px 1825px #000 , 1547px 1194px #000 , 1444px 1566px #000 , 1479px 1636px #000 , 1807px 225px #000 , 1342px 1084px #000 , 1873px 948px #000 , 1708px 523px #000 , 181px 1953px #000 , 824px 148px #000 , 1332px 81px #000 , 1999px 1127px #000 , 169px 1251px #000 , 473px 998px #000 , 1674px 852px #000 , 237px 769px #000 , 1010px 447px #000 , 1315px 1642px #000 , 1589px 170px #000 , 1128px 1908px #000 , 1038px 1437px #000 , 518px 18px #000 , 45px 26px #000 , 1530px 686px #000 , 1038px 786px #000 , 1835px 1002px #000 , 1992px 793px #000 , 1986px 501px #000 , 675px 45px #000 , 1253px 329px #000 , 191px 552px #000 , 588px 1833px #000 , 1058px 748px #000 , 132px 1799px #000 , 287px 62px #000 , 1020px 1990px #000 , 1924px 1635px #000 , 571px 1822px #000 , 1672px 1966px #000 , 661px 1529px #000 , 1992px 1175px #000 , 1884px 195px #000 , 721px 1554px #000 , 313px 553px #000 , 694px 558px #000 , 855px 1136px #000 , 844px 1173px #000 , 672px 716px #000 , 1750px 1031px #000 , 1209px 1732px #000 , 978px 1378px #000 , 626px 209px #000 , 745px 1777px #000 , 987px 166px #000 , 1362px 1683px #000 , 177px 510px #000 , 946px 1686px #000 , 601px 741px #000 , 1216px 597px #000 , 1906px 547px #000 , 1105px 495px #000 , 804px 1631px #000 , 55px 925px #000 , 1793px 1035px #000 , 562px 384px #000 , 631px 1157px #000 , 1479px 361px #000 , 1998px 1553px #000 , 1522px 1270px #000 , 1938px 385px #000 , 1589px 561px #000 , 1788px 705px #000 , 1886px 78px #000 , 585px 1809px #000 , 1645px 1325px #000 , 128px 1550px #000 , 1056px 1296px #000 , 1699px 1386px #000 , 1029px 1199px #000 , 409px 1196px #000 , 1702px 829px #000 , 1646px 266px #000 , 1711px 722px #000 , 1148px 1906px #000 , 240px 1090px #000 , 1379px 527px #000 , 1366px 1419px #000 , 442px 248px #000 , 1222px 890px #000 , 276px 823px #000 , 998px 293px #000 , 80px 920px #000 , 514px 1444px #000 , 1181px 242px #000 , 183px 268px #000 , 1649px 666px #000 , 1929px 1280px #000 , 1086px 1623px #000 , 1484px 449px #000 , 310px 1325px #000 , 1453px 1299px #000 , 377px 1349px #000 , 240px 951px #000 , 1585px 1153px #000 , 1251px 537px #000 , 938px 786px #000 , 417px 1860px #000 , 879px 1460px #000 , 1135px 387px #000 , 1276px 1607px #000 , 668px 398px #000 , 1909px 1123px #000 , 1798px 1101px #000 , 1743px 1979px #000 , 1715px 239px #000 , 1479px 173px #000 , 422px 706px #000 , 1868px 1851px #000 , 1761px 227px #000 , 1200px 898px #000 , 836px 247px #000 , 1821px 1240px #000 , 1594px 206px #000 , 566px 542px #000 , 1607px 202px #000 , 1795px 1780px #000 , 546px 1246px #000 , 1562px 595px #000 , 1288px 708px #000 , 1963px 1458px #000 , 1151px 1733px #000 , 1252px 411px #000 , 378px 237px #000 , 170px 200px #000 , 1781px 800px #000 , 1587px 721px #000 , 1559px 1786px #000 , 477px 1729px #000 , 1624px 102px #000 , 1273px 1887px #000 , 570px 204px #000 , 452px 589px #000 , 1073px 115px #000 , 270px 498px #000 , 1493px 465px #000 , 198px 1807px #000 , 1160px 1841px #000 , 1629px 639px #000 , 1000px 1723px #000 , 880px 1770px #000 , 303px 1115px #000 , 1076px 96px #000 , 915px 1524px #000 , 1280px 1891px #000 , 1899px 1391px #000 , 1573px 1761px #000 , 1501px 14px #000 , 1978px 674px #000 , 530px 809px #000 , 521px 725px #000 , 347px 1907px #000 , 111px 336px #000 , 695px 1570px #000 , 273px 674px #000 , 801px 1852px #000 , 666px 581px #000 , 1530px 371px #000 , 1562px 832px #000 , 324px 225px #000 , 879px 545px #000 , 694px 1098px #000 , 812px 227px #000 , 1135px 635px #000 , 877px 1017px #000 , 7px 1999px #000 , 110px 1560px #000 , 765px 1279px #000 , 866px 161px #000 , 316px 566px #000 , 1668px 1091px #000 , 607px 490px #000 , 314px 571px #000 , 919px 758px #000 , 1122px 1798px #000 , 431px 1706px #000 , 1161px 1957px #000 , 172px 1074px #000 , 1050px 602px #000 , 1846px 1292px #000 , 1342px 869px #000 , 1687px 1816px #000 , 1879px 82px #FFF , 590px 787px #FFF , 972px 1745px #FFF , 1215px 819px #FFF , 1840px 54px #FFF , 1393px 92px #FFF , 950px 680px #FFF , 1380px 898px #FFF , 1833px 1178px #FFF , 1658px 1926px #FFF , 1268px 926px #FFF , 1243px 262px #FFF , 840px 1579px #FFF , 1206px 1543px #FFF , 1070px 353px #FFF , 1090px 1599px #FFF , 178px 703px #FFF , 500px 1663px #FFF , 1622px 536px #FFF , 1650px 670px #FFF , 355px 1721px #FFF , 1592px 1517px #FFF , 1532px 507px #FFF , 334px 1286px #FFF , 971px 1665px #FFF , 931px 1707px #FFF , 1149px 1449px #FFF , 955px 1929px #FFF , 346px 1309px #FFF , 983px 410px #FFF , 1760px 324px #FFF , 763px 1060px #FFF , 657px 1033px #FFF , 638px 1060px #FFF , 1612px 649px #FFF , 1204px 1264px #FFF , 1635px 691px #FFF , 960px 1509px #FFF , 147px 1943px #FFF , 715px 1338px #FFF , 1045px 1357px #FFF , 1152px 1606px #FFF , 103px 965px #FFF , 241px 890px #FFF , 104px 509px #FFF , 460px 1231px #FFF , 1986px 1114px #FFF , 1942px 1890px #FFF , 938px 1323px #FFF , 50px 316px #FFF , 1302px 593px #FFF , 944px 953px #FFF , 1010px 1183px #FFF , 711px 642px #FFF , 1132px 1881px #FFF , 395px 1992px #FFF , 1388px 1853px #FFF , 465px 490px #FFF , 1213px 753px #FFF , 1067px 105px #FFF , 1665px 803px #FFF , 630px 1339px #FFF , 729px 679px #FFF , 223px 1855px #FFF , 1095px 1622px #FFF , 1889px 316px #FFF , 1951px 1117px #FFF , 7px 936px #FFF , 1399px 759px #FFF , 888px 1299px #FFF , 1824px 1148px #FFF , 1131px 158px #FFF , 87px 270px #FFF , 1135px 551px #FFF , 921px 1536px #FFF , 1124px 912px #FFF , 1267px 1418px #FFF , 1219px 832px #FFF , 370px 305px #FFF , 1557px 1760px #FFF , 1162px 276px #FFF , 308px 1054px #FFF , 1526px 1345px #FFF , 890px 141px #FFF , 761px 76px #FFF , 1549px 532px #FFF , 1815px 109px #FFF , 1666px 874px #FFF , 1237px 1264px #FFF , 1265px 349px #FFF , 90px 751px #FFF , 1069px 1823px #FFF , 489px 855px #FFF , 518px 1532px #FFF , 991px 578px #FFF , 567px 211px #FFF , 529px 1159px #FFF , 1911px 1346px #FFF , 1630px 1569px #FFF , 1518px 1278px #FFF , 869px 1537px #FFF , 1440px 645px #FFF , 622px 798px #FFF , 1934px 870px #FFF , 607px 478px #FFF , 1528px 302px #FFF , 1025px 1086px #FFF , 503px 1689px #FFF , 1136px 1024px #FFF , 1316px 695px #FFF , 1456px 1778px #FFF , 1468px 1982px #FFF , 808px 6px #FFF , 155px 1666px #FFF , 557px 604px #FFF , 1989px 1033px #FFF , 174px 811px #FFF , 179px 1581px #FFF , 674px 787px #FFF , 1882px 647px #FFF , 489px 641px #FFF , 915px 85px #FFF , 1439px 1838px #FFF , 248px 1360px #FFF , 652px 1698px #FFF , 142px 1769px #FFF , 1292px 106px #FFF , 1039px 765px #FFF , 42px 1691px #FFF , 848px 262px #FFF , 929px 407px #FFF , 597px 1659px #FFF , 79px 1743px #FFF , 989px 647px #FFF , 1029px 1773px #FFF , 1909px 1071px #FFF , 1564px 760px #FFF , 1471px 1869px #FFF , 321px 93px #FFF , 1799px 253px #FFF , 319px 1673px #FFF , 1824px 469px #FFF , 970px 212px #FFF , 1531px 1956px #FFF , 1128px 1284px #FFF , 213px 1598px #FFF , 206px 1825px #FFF , 1067px 1732px #FFF , 1897px 1454px #FFF , 295px 39px #FFF , 1110px 833px #FFF , 1163px 1140px #FFF , 796px 266px #FFF , 1598px 754px #FFF , 1249px 474px #FFF , 408px 1447px #FFF , 1939px 1480px #FFF , 1809px 334px #FFF , 490px 1433px #FFF , 1946px 1070px #FFF , 1342px 1636px #FFF , 144px 1990px #FFF , 663px 1247px #FFF , 1012px 681px #FFF , 388px 1149px #FFF , 1312px 1539px #FFF , 915px 469px #FFF , 369px 1503px #FFF , 1220px 1208px #FFF , 1145px 1454px #FFF , 1647px 1501px #FFF , 1283px 1878px #FFF , 594px 818px #FFF , 1318px 1633px #FFF , 1132px 749px #FFF , 801px 216px #FFF , 1221px 1109px #FFF , 458px 70px #FFF , 1997px 1578px #FFF , 423px 466px #FFF , 298px 726px #FFF , 1021px 1943px #FFF , 81px 959px #FFF , 1678px 755px #FFF , 1743px 1330px #FFF , 1285px 1883px #FFF , 1602px 260px #FFF , 1426px 1262px #FFF , 784px 522px #FFF , 201px 1575px #FFF , 5px 1159px #FFF , 1472px 1174px #FFF , 277px 1717px #FFF , 1366px 898px #FFF , 1297px 1487px #FFF , 353px 1299px #FFF , 669px 1664px #FFF , 1559px 259px #FFF , 1119px 1341px #FFF , 862px 1557px #FFF , 826px 1750px #FFF , 1390px 833px #FFF , 324px 1756px #FFF , 740px 1360px #FFF , 144px 1071px #FFF , 63px 1759px #FFF , 1959px 585px #FFF , 1266px 798px #FFF , 1653px 585px #FFF , 409px 390px #FFF , 1564px 804px #FFF , 1050px 1212px #FFF , 365px 1452px #FFF , 1876px 1714px #FFF , 1828px 234px #FFF , 1964px 1088px #FFF , 1437px 1550px #FFF , 1054px 1802px #FFF , 1776px 593px #FFF , 913px 1935px #FFF , 993px 684px #FFF , 431px 1832px #FFF , 1002px 939px #FFF , 1911px 1281px #FFF;
-    animation: animStar 50s linear infinite;
+
+  /***** morph text ***/
+  #container {
+	/* Center the text in the viewport. */
+	margin: auto;
+	height: 80pt;
+	top: 0;
+	bottom: 0;
+	
+	/* This filter is a lot of the magic, try commenting it out to see how the morphing works! */
+	filter: url(#threshold) blur(0.6px);
+}
+
+/* Your average text styling */
+#text1, #text2 {
+
+	position: absolute;
+	width: 100%;
+	display: inline-block;
+	
+	font-size: 80pt;
+	
+	text-align: center;
+	
+	user-select: none;
+
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+
+/***** infinite scroll ****/
+.app {
+  min-width: auto;
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.tag-list {
+  width: 50rem;
+  max-width: 90vw;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 1rem 0;
+  position: relative;
+  padding: 1.5rem 0;
+  overflow: hidden;
+}
+
+.loop-slider .inner {
+  display: flex;
+  width: fit-content;
+  animation-name: loop;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--direction);
+  animation-duration: var(--duration);
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 0 0.2rem;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  background-color: #334155;
+  border-radius: 0.4rem;
+  padding: 0.7rem 1rem;
+  margin-right: 1rem;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.2), 0 0.1rem 0.5rem rgba(0, 0, 0, 0.3), 0 0.2rem 1.5rem rgba(0, 0, 0, 0.4);
+}
+
+.tag span {
+  font-size: 1.2rem;
+  color: #64748b;
+}
+
+.fade {
+  pointer-events: none;
+  background: linear-gradient(90deg, #ffffff, transparent 30%, transparent 70%, #ffffff);
+  position: absolute;
+  inset: 0;
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(0);
   }
-  #stars:after {
-    overflow: hidden;
-    content: " ";
-    position: absolute;
-    top: 2000px;
-    width: 1px;
-    height: 1px;
-    background: transparent;
-    box-shadow: 1920px 1878px #FFF , 318px 460px #FFF , 1805px 1021px #FFF , 853px 1402px #FFF , 627px 1037px #FFF , 1680px 1381px #FFF , 928px 583px #FFF , 583px 1280px #FFF , 920px 908px #FFF , 1046px 1890px #FFF , 496px 1792px #FFF , 642px 554px #FFF , 80px 107px #FFF , 1673px 166px #FFF , 1705px 443px #FFF , 1477px 1449px #000 , 1865px 851px #000 , 1582px 540px #000 , 859px 160px #000 , 1510px 191px #000 , 1285px 449px #000 , 349px 732px #000 , 993px 1032px #000 , 1075px 303px #000 , 1792px 1676px #000 , 842px 1497px #000 , 1754px 1877px #000 , 1638px 784px #000 , 605px 965px #000 , 1668px 289px #000 , 1674px 593px #000 , 1621px 1331px #000 , 106px 1792px #000 , 1537px 518px #000 , 799px 1775px #000 , 813px 668px #000 , 382px 842px #000 , 535px 710px #000 , 375px 1756px #000 , 315px 290px #000 , 332px 1199px #000 , 926px 1262px #000 , 1241px 1046px #000 , 1255px 823px #000 , 1597px 1557px #000 , 585px 138px #000 , 409px 1352px #000 , 125px 1375px #000 , 1062px 1821px #000 , 1524px 360px #000 , 299px 981px #000 , 1963px 1951px #000 , 1272px 1255px #000 , 341px 1717px #000 , 1522px 805px #000 , 169px 326px #000 , 260px 66px #000 , 1509px 1396px #000 , 196px 1931px #000 , 1374px 939px #000 , 878px 1747px #000 , 1696px 1504px #000 , 1882px 711px #000 , 1270px 633px #000 , 249px 143px #000 , 950px 320px #000 , 518px 224px #000 , 299px 409px #000 , 847px 280px #000 , 780px 382px #000 , 801px 577px #000 , 547px 379px #000 , 1715px 227px #000 , 1133px 1542px #000 , 1434px 942px #000 , 296px 1166px #000 , 1281px 1481px #000 , 690px 1390px #000 , 1167px 1919px #000 , 1131px 618px #000 , 1631px 1761px #000 , 1019px 1792px #000 , 1376px 1382px #000 , 484px 1995px #000 , 1610px 481px #000 , 112px 1491px #000 , 445px 1831px #000 , 1732px 158px #000 , 895px 885px #000 , 829px 1303px #000 , 190px 904px #000 , 1920px 1321px #000 , 1291px 1954px #000 , 1292px 1844px #000 , 1521px 1476px #000 , 888px 528px #000 , 1513px 1778px #000 , 45px 343px #000 , 1021px 1097px #000 , 743px 257px #000 , 427px 863px #000 , 1150px 1422px #000 , 895px 1066px #000 , 398px 1337px #000 , 1918px 861px #000 , 998px 1155px #000 , 1158px 1593px #000 , 559px 1451px #000 , 960px 1417px #000 , 1826px 699px #000 , 574px 1645px #000 , 484px 301px #000 , 1282px 988px #000 , 1096px 841px #000 , 1972px 1902px #000 , 292px 155px #000 , 622px 1970px #000 , 885px 671px #000 , 1840px 1346px #000 , 1690px 741px #FFF , 536px 1388px #FFF , 1545px 612px #FFF , 726px 245px #FFF , 1208px 511px #FFF , 727px 1640px #FFF , 895px 253px #FFF , 1449px 592px #FFF , 369px 760px #FFF , 542px 1628px #FFF , 672px 462px #FFF , 1505px 630px #FFF , 1399px 1727px #FFF , 928px 199px #FFF , 231px 422px #FFF , 231px 652px #FFF , 914px 1171px #FFF , 83px 1989px #FFF , 1041px 335px #FFF , 898px 1059px #FFF , 1096px 1592px #FFF , 307px 1388px #FFF , 871px 492px #FFF , 1667px 552px #FFF , 1398px 1830px #FFF , 209px 265px #FFF , 979px 1211px #FFF , 38px 809px #FFF , 1310px 1264px #FFF , 1587px 632px #FFF , 1985px 1656px #FFF , 1668px 638px #FFF , 1947px 696px #FFF , 504px 450px #FFF , 659px 276px #FFF , 732px 348px #FFF , 936px 1078px #FFF , 1720px 1233px #FFF , 1027px 342px #FFF , 814px 502px #FFF , 1744px 1147px #FFF , 909px 1181px #FFF , 1928px 3px #FFF , 320px 822px #FFF , 148px 1095px #FFF , 1376px 384px #FFF , 996px 1599px #FFF , 559px 226px #FFF , 1508px 672px #FFF , 1342px 1092px #FFF , 844px 127px #FFF , 994px 1501px #FFF , 1124px 1097px #FFF , 591px 1766px #FFF , 1444px 254px #FFF , 71px 1561px #FFF , 1735px 1668px #FFF , 1533px 20px #FFF , 1999px 211px #FFF , 1726px 962px #FFF , 810px 1247px #FFF , 1834px 199px #FFF , 1640px 669px #FFF , 15px 916px #FFF , 868px 1127px #FFF , 1341px 829px #FFF , 293px 262px #FFF , 546px 1993px #FFF , 166px 1738px #FFF , 1978px 1615px #FFF , 1297px 1216px #FFF , 1136px 1738px #FFF , 228px 797px #FFF , 71px 1134px #FFF , 705px 1794px #FFF , 251px 1525px #FFF , 1109px 684px #FFF , 673px 122px #FFF , 37px 1178px #FFF , 1922px 1034px #FFF , 1361px 132px #FFF , 301px 276px #FFF , 816px 374px #FFF , 1965px 1760px #FFF , 130px 1274px #FFF , 1091px 980px #FFF , 136px 1665px #FFF , 1813px 919px #FFF , 1603px 1023px #FFF , 1143px 3px #FFF , 1617px 809px #FFF , 1458px 976px #FFF , 65px 1994px #FFF , 119px 1701px #FFF , 1712px 975px #FFF , 1491px 1067px #FFF , 430px 1173px #FFF , 1870px 1876px #FFF , 1598px 82px #FFF , 1160px 518px #FFF , 702px 830px #FFF , 1717px 1003px #FFF , 1870px 1117px #FFF , 559px 331px #FFF , 1501px 731px #FFF , 1384px 594px #FFF , 944px 171px #FFF , 1524px 1885px #FFF , 743px 1878px #FFF , 284px 1821px #FFF , 906px 779px #FFF , 408px 1895px #FFF , 1001px 1780px #FFF , 480px 216px #FFF , 787px 838px #FFF , 1212px 276px #FFF , 656px 1725px #FFF , 833px 1930px #FFF , 59px 728px #FFF , 576px 179px #FFF , 1126px 48px #FFF , 189px 1975px #FFF , 473px 337px #FFF , 348px 204px #FFF , 1669px 1162px #FFF , 123px 1770px #FFF , 1634px 486px #FFF , 1999px 297px #FFF , 1780px 1642px #FFF , 1049px 1365px #FFF , 917px 1398px #FFF , 674px 619px #FFF , 1394px 601px #FFF , 1166px 1004px #FFF , 1750px 1887px #FFF , 735px 843px #FFF , 1742px 1685px #FFF , 344px 279px #FFF , 1640px 718px #FFF , 952px 231px #FFF , 1929px 1011px #FFF , 10px 703px #FFF , 357px 894px #FFF , 82px 266px #FFF , 219px 29px #FFF , 534px 1452px #FFF , 73px 1841px #FFF , 1033px 1561px #FFF , 753px 204px #FFF , 1837px 1316px #FFF , 1938px 1650px #FFF , 1985px 898px #FFF , 412px 1463px #FFF , 1810px 1907px #FFF , 1131px 1617px #FFF , 1138px 661px #FFF , 980px 661px #FFF , 443px 1874px #FFF , 824px 596px #FFF , 1674px 1967px #FFF , 1681px 1664px #FFF , 395px 947px #FFF , 1201px 407px #FFF , 130px 1116px #FFF , 718px 696px #FFF , 1920px 842px #FFF , 519px 1825px #FFF , 1547px 1194px #FFF , 1444px 1566px #FFF , 1479px 1636px #FFF , 1807px 225px #FFF , 1342px 1084px #FFF , 1873px 948px #FFF , 1708px 523px #FFF , 181px 1953px #FFF , 824px 148px #FFF , 1332px 81px #FFF , 1999px 1127px #FFF , 169px 1251px #FFF , 473px 998px #FFF , 1674px 852px #FFF , 237px 769px #FFF , 1010px 447px #FFF , 1315px 1642px #FFF , 1589px 170px #FFF , 1128px 1908px #FFF , 1038px 1437px #FFF , 518px 18px #FFF , 45px 26px #FFF , 1530px 686px #FFF , 1038px 786px #FFF , 1835px 1002px #FFF , 1992px 793px #FFF , 1986px 501px #FFF , 675px 45px #FFF , 1253px 329px #FFF , 191px 552px #FFF , 588px 1833px #FFF , 1058px 748px #FFF , 132px 1799px #FFF , 287px 62px #FFF , 1020px 1990px #FFF , 1924px 1635px #FFF , 571px 1822px #FFF , 1672px 1966px #FFF , 661px 1529px #FFF , 1992px 1175px #FFF , 1884px 195px #FFF , 721px 1554px #FFF , 313px 553px #FFF , 694px 558px #FFF , 855px 1136px #FFF , 844px 1173px #FFF , 672px 716px #FFF , 1750px 1031px #FFF , 1209px 1732px #FFF , 978px 1378px #FFF , 626px 209px #FFF , 745px 1777px #FFF , 987px 166px #FFF , 1362px 1683px #000 , 177px 510px #000 , 946px 1686px #000 , 601px 741px #000 , 1216px 597px #000 , 1906px 547px #000 , 1105px 495px #000 , 804px 1631px #000 , 55px 925px #000 , 1793px 1035px #000 , 562px 384px #000 , 631px 1157px #000 , 1479px 361px #000 , 1998px 1553px #000 , 1522px 1270px #000 , 1938px 385px #000 , 1589px 561px #000 , 1788px 705px #000 , 1886px 78px #000 , 585px 1809px #000 , 1645px 1325px #000 , 128px 1550px #000 , 1056px 1296px #000 , 1699px 1386px #000 , 1029px 1199px #000 , 409px 1196px #000 , 1702px 829px #000 , 1646px 266px #000 , 1711px 722px #000 , 1148px 1906px #000 , 240px 1090px #000 , 1379px 527px #000 , 1366px 1419px #000 , 442px 248px #000 , 1222px 890px #000 , 276px 823px #000 , 998px 293px #000 , 80px 920px #000 , 514px 1444px #000 , 1181px 242px #000 , 183px 268px #000 , 1649px 666px #000 , 1929px 1280px #000 , 1086px 1623px #000 , 1484px 449px #000 , 310px 1325px #000 , 1453px 1299px #000 , 377px 1349px #000 , 240px 951px #000 , 1585px 1153px #000 , 1251px 537px #000 , 938px 786px #000 , 417px 1860px #000 , 879px 1460px #000 , 1135px 387px #000 , 1276px 1607px #000 , 668px 398px #000 , 1909px 1123px #000 , 1798px 1101px #000 , 1743px 1979px #000 , 1715px 239px #000 , 1479px 173px #000 , 422px 706px #000 , 1868px 1851px #000 , 1761px 227px #000 , 1200px 898px #000 , 836px 247px #000 , 1821px 1240px #000 , 1594px 206px #000 , 566px 542px #000 , 1607px 202px #000 , 1795px 1780px #000 , 546px 1246px #000 , 1562px 595px #000 , 1288px 708px #000 , 1963px 1458px #000 , 1151px 1733px #000 , 1252px 411px #000 , 378px 237px #000 , 170px 200px #000 , 1781px 800px #000 , 1587px 721px #000 , 1559px 1786px #000 , 477px 1729px #000 , 1624px 102px #000 , 1273px 1887px #000 , 570px 204px #000 , 452px 589px #000 , 1073px 115px #000 , 270px 498px #000 , 1493px 465px #000 , 198px 1807px #000 , 1160px 1841px #000 , 1629px 639px #000 , 1000px 1723px #000 , 880px 1770px #000 , 303px 1115px #000 , 1076px 96px #000 , 915px 1524px #000 , 1280px 1891px #000 , 1899px 1391px #000 , 1573px 1761px #000 , 1501px 14px #000 , 1978px 674px #000 , 530px 809px #000 , 521px 725px #000 , 347px 1907px #000 , 111px 336px #000 , 695px 1570px #000 , 273px 674px #000 , 801px 1852px #000 , 666px 581px #000 , 1530px 371px #000 , 1562px 832px #000 , 324px 225px #000 , 879px 545px #000 , 694px 1098px #000 , 812px 227px #000 , 1135px 635px #000 , 877px 1017px #000 , 7px 1999px #000 , 110px 1560px #000 , 765px 1279px #000 , 866px 161px #000 , 316px 566px #000 , 1668px 1091px #000 , 607px 490px #000 , 314px 571px #000 , 919px 758px #000 , 1122px 1798px #000 , 431px 1706px #000 , 1161px 1957px #000 , 172px 1074px #000 , 1050px 602px #000 , 1846px 1292px #000 , 1342px 869px #000 , 1687px 1816px #000 , 1879px 82px #000 , 590px 787px #000 , 972px 1745px #000 , 1215px 819px #000 , 1840px 54px #000 , 1393px 92px #000 , 950px 680px #000 , 1380px 898px #000 , 1833px 1178px #000 , 1658px 1926px #000 , 1268px 926px #000 , 1243px 262px #000 , 840px 1579px #000 , 1206px 1543px #000 , 1070px 353px #000 , 1090px 1599px #000 , 178px 703px #000 , 500px 1663px #000 , 1622px 536px #000 , 1650px 670px #000 , 355px 1721px #000 , 1592px 1517px #000 , 1532px 507px #000 , 334px 1286px #000 , 971px 1665px #000 , 931px 1707px #000 , 1149px 1449px #000 , 955px 1929px #000 , 346px 1309px #000 , 983px 410px #000 , 1760px 324px #000 , 763px 1060px #000 , 657px 1033px #000 , 638px 1060px #000 , 1612px 649px #000 , 1204px 1264px #000 , 1635px 691px #000 , 960px 1509px #000 , 147px 1943px #000 , 715px 1338px #000 , 1045px 1357px #000 , 1152px 1606px #000 , 103px 965px #000 , 241px 890px #000 , 104px 509px #000 , 460px 1231px #000 , 1986px 1114px #000 , 1942px 1890px #000 , 938px 1323px #000 , 50px 316px #000 , 1302px 593px #000 , 944px 953px #000 , 1010px 1183px #000 , 711px 642px #000 , 1132px 1881px #000 , 395px 1992px #000 , 1388px 1853px #000 , 465px 490px #000 , 1213px 753px #000 , 1067px 105px #000 , 1665px 803px #000 , 630px 1339px #000 , 729px 679px #000 , 223px 1855px #000 , 1095px 1622px #000 , 1889px 316px #000 , 1951px 1117px #000 , 7px 936px #000 , 1399px 759px #000 , 888px 1299px #000 , 1824px 1148px #000 , 1131px 158px #000 , 87px 270px #000 , 1135px 551px #000 , 921px 1536px #000 , 1124px 912px #000 , 1267px 1418px #000 , 1219px 832px #000 , 370px 305px #000 , 1557px 1760px #000 , 1162px 276px #000 , 308px 1054px #000 , 1526px 1345px #000 , 890px 141px #000 , 761px 76px #000 , 1549px 532px #000 , 1815px 109px #000 , 1666px 874px #000 , 1237px 1264px #000 , 1265px 349px #000 , 90px 751px #000 , 1069px 1823px #000 , 489px 855px #000 , 518px 1532px #000 , 991px 578px #000 , 567px 211px #000 , 529px 1159px #000 , 1911px 1346px #000 , 1630px 1569px #000 , 1518px 1278px #000 , 869px 1537px #000 , 1440px 645px #000 , 622px 798px #000 , 1934px 870px #000 , 607px 478px #000 , 1528px 302px #000 , 1025px 1086px #000 , 503px 1689px #000 , 1136px 1024px #000 , 1316px 695px #000 , 1456px 1778px #000 , 1468px 1982px #000 , 808px 6px #000 , 155px 1666px #000 , 557px 604px #000 , 1989px 1033px #000 , 174px 811px #000 , 179px 1581px #000 , 674px 787px #000 , 1882px 647px #000 , 489px 641px #000 , 915px 85px #000 , 1439px 1838px #000 , 248px 1360px #000 , 652px 1698px #000 , 142px 1769px #000 , 1292px 106px #000 , 1039px 765px #000 , 42px 1691px #000 , 848px 262px #000 , 929px 407px #000 , 597px 1659px #000 , 79px 1743px #000 , 989px 647px #000 , 1029px 1773px #000 , 1909px 1071px #000 , 1564px 760px #000 , 1471px 1869px #000 , 321px 93px #000 , 1799px 253px #000 , 319px 1673px #000 , 1824px 469px #000 , 970px 212px #000 , 1531px 1956px #000 , 1128px 1284px #000 , 213px 1598px #FFF , 206px 1825px #FFF , 1067px 1732px #FFF , 1897px 1454px #FFF , 295px 39px #FFF , 1110px 833px #FFF , 1163px 1140px #FFF , 796px 266px #FFF , 1598px 754px #FFF , 1249px 474px #FFF , 408px 1447px #FFF , 1939px 1480px #FFF , 1809px 334px #FFF , 490px 1433px #FFF , 1946px 1070px #FFF , 1342px 1636px #FFF , 144px 1990px #FFF , 663px 1247px #FFF , 1012px 681px #FFF , 388px 1149px #FFF , 1312px 1539px #FFF , 915px 469px #FFF , 369px 1503px #FFF , 1220px 1208px #FFF , 1145px 1454px #FFF , 1647px 1501px #FFF , 1283px 1878px #FFF , 594px 818px #FFF , 1318px 1633px #FFF , 1132px 749px #FFF , 801px 216px #FFF , 1221px 1109px #FFF , 458px 70px #FFF , 1997px 1578px #FFF , 423px 466px #FFF , 298px 726px #FFF , 1021px 1943px #FFF , 81px 959px #FFF , 1678px 755px #FFF , 1743px 1330px #FFF , 1285px 1883px #FFF , 1602px 260px #FFF , 1426px 1262px #FFF , 784px 522px #FFF , 201px 1575px #FFF , 5px 1159px #FFF , 1472px 1174px #FFF , 277px 1717px #FFF , 1366px 898px #FFF , 1297px 1487px #FFF , 353px 1299px #FFF , 669px 1664px #FFF , 1559px 259px #FFF , 1119px 1341px #FFF , 862px 1557px #FFF , 826px 1750px #FFF , 1390px 833px #FFF , 324px 1756px #FFF , 740px 1360px #FFF , 144px 1071px #FFF , 63px 1759px #FFF , 1959px 585px #FFF , 1266px 798px #FFF , 1653px 585px #FFF , 409px 390px #FFF , 1564px 804px #FFF , 1050px 1212px #FFF , 365px 1452px #FFF , 1876px 1714px #FFF , 1828px 234px #FFF , 1964px 1088px #FFF , 1437px 1550px #FFF , 1054px 1802px #FFF , 1776px 593px #FFF , 913px 1935px #FFF , 993px 684px #FFF , 431px 1832px #FFF , 1002px 939px #FFF , 1911px 1281px #FFF;
+  100% {
+    transform: translateX(-50%);
   }
-  
-  #stars2 {
-    overflow: hidden;
-    width: 2px;
-    height: 2px;
-    background: transparent;
-    box-shadow: 535px 1164px #FFF , 1213px 856px #FFF , 1505px 86px #FFF , 1905px 1270px #FFF , 584px 1788px #FFF , 1378px 286px #FFF , 125px 871px #FFF , 244px 1563px #FFF , 308px 1070px #FFF , 1118px 1889px #FFF , 728px 638px #FFF , 367px 1969px #FFF , 595px 451px #FFF , 205px 1639px #FFF , 1931px 698px #FFF , 1694px 87px #FFF , 877px 1931px #FFF , 515px 1569px #FFF , 1264px 718px #FFF , 1294px 785px #FFF , 1375px 1093px #FFF , 195px 320px #000 , 658px 1018px #000 , 1688px 1571px #000 , 26px 1248px #000 , 965px 95px #000 , 1356px 253px #000 , 1139px 775px #000 , 1699px 1599px #000 , 842px 1767px #000 , 154px 594px #000 , 480px 634px #000 , 885px 415px #000 , 1387px 1441px #000 , 1885px 1893px #000 , 832px 1444px #000 , 267px 850px #000 , 448px 724px #000 , 176px 1615px #000 , 967px 278px #000 , 603px 1912px #000 , 1460px 1368px #000 , 982px 444px #000 , 1776px 363px #000 , 404px 1178px #000 , 8px 1543px #000 , 649px 461px #000 , 301px 1419px #000 , 1547px 1473px #000 , 507px 952px #000 , 612px 839px #000 , 1977px 750px #000 , 176px 1359px #000 , 339px 1722px #000 , 928px 1456px #000 , 1658px 163px #000 , 1785px 1913px #000 , 56px 1297px #000 , 159px 1203px #000 , 1371px 1595px #000 , 1588px 785px #000 , 1786px 383px #000 , 235px 948px #000 , 571px 28px #000 , 250px 1185px #000 , 1483px 1800px #000 , 1951px 1001px #000 , 1593px 867px #000 , 1736px 387px #000 , 142px 1079px #000 , 594px 871px #000 , 622px 1998px #000 , 1866px 518px #000 , 892px 1161px #000 , 824px 161px #000 , 587px 604px #000 , 1719px 1714px #000 , 1361px 905px #000 , 523px 482px #000 , 1149px 841px #000 , 1042px 883px #000 , 931px 1101px #000 , 1434px 1155px #000 , 1247px 1571px #000 , 1061px 1638px #000 , 592px 237px #000 , 1945px 579px #000 , 1891px 394px #000 , 506px 600px #000 , 942px 1712px #000 , 1227px 1224px #000 , 782px 717px #000 , 1048px 846px #000 , 1049px 182px #000 , 1217px 1222px #000 , 495px 20px #000 , 1444px 1801px #000 , 1023px 1675px #000 , 1299px 1948px #000 , 1544px 821px #000 , 1220px 1105px #000 , 655px 1710px #000 , 1387px 927px #000 , 412px 1510px #000 , 135px 129px #000 , 1109px 1888px #000 , 914px 470px #000 , 1978px 458px #000 , 503px 1715px #000 , 1079px 813px #000 , 238px 467px #000 , 299px 101px #000 , 58px 1804px #000 , 551px 730px #000 , 1315px 453px #000 , 198px 696px #000 , 314px 1707px #000 , 1118px 822px #000 , 1094px 182px #000 , 1654px 188px #000 , 1856px 398px #000 , 294px 1231px #000 , 495px 1910px #000 , 1104px 1325px #000 , 847px 1752px #000 , 1562px 689px #000 , 1464px 1320px #000 , 354px 1073px #000 , 131px 1039px #000 , 1556px 1316px #000 , 1085px 1771px #000 , 657px 1186px #000 , 307px 701px #000 , 526px 868px #000 , 1563px 11px #000 , 1024px 504px #000 , 1418px 607px #000 , 1622px 218px #000 , 706px 1233px #000 , 382px 492px #000 , 607px 1073px #000 , 927px 1742px #000 , 1919px 1213px #000 , 1882px 126px #000 , 34px 115px #000 , 1847px 448px #000 , 658px 704px #000 , 272px 821px #000 , 952px 1875px #000 , 56px 1397px #000 , 1306px 1584px #000 , 1990px 564px #000 , 1353px 1298px #000 , 1192px 1577px #000 , 1770px 1557px #000 , 714px 816px #000 , 81px 1503px #000 , 930px 1984px #000 , 1272px 1483px #000 , 66px 844px #000 , 27px 801px #000 , 324px 227px #000 , 1623px 911px #000 , 1428px 1811px #000 , 1235px 1786px #000 , 1953px 1582px #000 , 770px 665px #000 , 889px 279px #000 , 1083px 1801px #000 , 871px 243px #000 , 1850px 43px #000 , 1173px 359px #000 , 514px 1668px #000 , 1681px 353px #000 , 1998px 877px #000 , 240px 137px #000 , 230px 267px #000 , 1874px 1137px #000 , 293px 526px #000 , 645px 141px #000 , 321px 221px #000 , 488px 661px #000 , 275px 932px #000 , 764px 596px #000 , 1810px 1572px #000 , 671px 1306px #000 , 1735px 1973px #000 , 489px 979px #000 , 1522px 689px #000 , 1863px 313px #000 , 1395px 54px #000 , 1678px 1199px #000 , 1900px 47px #000 , 322px 1583px #000 , 1116px 1715px #000 , 1577px 1175px #000 , 1163px 347px #000 , 252px 822px #000 , 1591px 575px #000 , 255px 1860px #000;
-    animation: animStar 100s linear infinite;
+}
+
+
+/******** Process *******/
+.process_container {
+  position: relative;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.process_tabs {
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
+  padding: 0.75rem;
+  border-radius: 99px;
+}
+.process_tabs * {
+  z-index: 2;
+}
+
+input[type=radio] {
+  display: none;
+}
+input[type=radio]:checked + label {
+  color: var(--tab-primary-color);
+}
+input[type=radio]:checked + label > .notification {
+  background-color: var(--tab-primary-color);
+  color: #fff;
+}
+
+.process_tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  width: 200px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: color 0.15s ease-in;
+}
+
+input[id=radio-1]:checked ~ .glider {
+  transform: translateX(0);
+}
+
+input[id=radio-2]:checked ~ .glider {
+  transform: translateX(100%);
+}
+
+input[id=radio-3]:checked ~ .glider {
+  transform: translateX(200%);
+}
+
+input[id=radio-4]:checked ~ .glider {
+  transform: translateX(300%);
+}
+
+.glider {
+  position: absolute;
+  display: flex;
+  height: 54px;
+  width: 200px;
+  background-color: var(--tab-secondary-color);
+  z-index: 1;
+  border-radius: 99px;
+  transition: 0.25s ease-out;
+}
+
+@media (max-width: 700px) {
+  .process_tabs {
+    transform: scale(0.45);
   }
-  #stars2:after {
-    overflow: hidden;
-    content: " ";
-    position: absolute;
-    top: 2000px;
-    width: 2px;
-    height: 2px;
-    background: transparent;
-    box-shadow: 535px 1164px #000 , 1213px 856px #000 , 1505px 86px #000 , 1905px 1270px #000 , 584px 1788px #000 , 1378px 286px #000 , 125px 871px #000 , 244px 1563px #000 , 308px 1070px #000 , 1118px 1889px #000 , 728px 638px #000 , 367px 1969px #000 , 595px 451px #000 , 205px 1639px #000 , 1931px 698px #000 , 1694px 87px #000 , 877px 1931px #000 , 515px 1569px #000 , 1264px 718px #000 , 1294px 785px #000 , 1375px 1093px #000 , 195px 320px #000 , 658px 1018px #000 , 1688px 1571px #000 , 26px 1248px #000 , 965px 95px #000 , 1356px 253px #000 , 1139px 775px #000 , 1699px 1599px #000 , 842px 1767px #000 , 154px 594px #000 , 480px 634px #000 , 885px 415px #000 , 1387px 1441px #000 , 1885px 1893px #000 , 832px 1444px #000 , 267px 850px #000 , 448px 724px #000 , 176px 1615px #000 , 967px 278px #000 , 603px 1912px #000 , 1460px 1368px #000 , 982px 444px #000 , 1776px 363px #000 , 404px 1178px #000 , 8px 1543px #000 , 649px 461px #000 , 301px 1419px #000 , 1547px 1473px #000 , 507px 952px #000 , 612px 839px #000 , 1977px 750px #000 , 176px 1359px #000 , 339px 1722px #000 , 928px 1456px #000 , 1658px 163px #000 , 1785px 1913px #000 , 56px 1297px #000 , 159px 1203px #000 , 1371px 1595px #000 , 1588px 785px #000 , 1786px 383px #000 , 235px 948px #000 , 571px 28px #000 , 250px 1185px #000 , 1483px 1800px #000 , 1951px 1001px #000 , 1593px 867px #000 , 1736px 387px #000 , 142px 1079px #000 , 594px 871px #000 , 622px 1998px #000 , 1866px 518px #000 , 892px 1161px #000 , 824px 161px #000 , 587px 604px #000 , 1719px 1714px #000 , 1361px 905px #000 , 523px 482px #000 , 1149px 841px #000 , 1042px 883px #000 , 931px 1101px #000 , 1434px 1155px #000 , 1247px 1571px #000 , 1061px 1638px #000 , 592px 237px #000 , 1945px 579px #000 , 1891px 394px #000 , 506px 600px #000 , 942px 1712px #000 , 1227px 1224px #000 , 782px 717px #000 , 1048px 846px #000 , 1049px 182px #000 , 1217px 1222px #000 , 495px 20px #000 , 1444px 1801px #000 , 1023px 1675px #000 , 1299px 1948px #000 , 1544px 821px #000 , 1220px 1105px #000 , 655px 1710px #000 , 1387px 927px #000 , 412px 1510px #000 , 135px 129px #000 , 1109px 1888px #000 , 914px 470px #000 , 1978px 458px #000 , 503px 1715px #000 , 1079px 813px #000 , 238px 467px #000 , 299px 101px #000 , 58px 1804px #000 , 551px 730px #000 , 1315px 453px #000 , 198px 696px #000 , 314px 1707px #000 , 1118px 822px #000 , 1094px 182px #000 , 1654px 188px #000 , 1856px 398px #000 , 294px 1231px #000 , 495px 1910px #000 , 1104px 1325px #000 , 847px 1752px #000 , 1562px 689px #000 , 1464px 1320px #000 , 354px 1073px #000 , 131px 1039px #000 , 1556px 1316px #000 , 1085px 1771px #000 , 657px 1186px #000 , 307px 701px #000 , 526px 868px #000 , 1563px 11px #000 , 1024px 504px #000 , 1418px 607px #000 , 1622px 218px #000 , 706px 1233px #000 , 382px 492px #000 , 607px 1073px #000 , 927px 1742px #000 , 1919px 1213px #000 , 1882px 126px #000 , 34px 115px #000 , 1847px 448px #000 , 658px 704px #000 , 272px 821px #000 , 952px 1875px #000 , 56px 1397px #000 , 1306px 1584px #000 , 1990px 564px #000 , 1353px 1298px #000 , 1192px 1577px #000 , 1770px 1557px #000 , 714px 816px #FFF , 81px 1503px #FFF , 930px 1984px #FFF , 1272px 1483px #FFF , 66px 844px #FFF , 27px 801px #FFF , 324px 227px #FFF , 1623px 911px #FFF , 1428px 1811px #FFF , 1235px 1786px #FFF , 1953px 1582px #FFF , 770px 665px #FFF , 889px 279px #FFF , 1083px 1801px #FFF , 871px 243px #FFF , 1850px 43px #FFF , 1173px 359px #FFF , 514px 1668px #FFF , 1681px 353px #FFF , 1998px 877px #FFF , 240px 137px #FFF , 230px 267px #FFF , 1874px 1137px #FFF , 293px 526px #FFF , 645px 141px #FFF , 321px 221px #FFF , 488px 661px #FFF , 275px 932px #FFF , 764px 596px #FFF , 1810px 1572px #FFF , 671px 1306px #FFF , 1735px 1973px #FFF , 489px 979px #FFF , 1522px 689px #FFF , 1863px 313px #FFF , 1395px 54px #FFF , 1678px 1199px #FFF , 1900px 47px #FFF , 322px 1583px #FFF , 1116px 1715px #FFF , 1577px 1175px #FFF , 1163px 347px #FFF , 252px 822px #FFF , 1591px 575px #FFF , 255px 1860px #FFF;
+}
+
+@media (max-width: 540px) {
+  .process_tabs {
+    transform: scale(0.45);
   }
-  
-  #stars3 {
-    overflow: hidden;
-    width: 4px;
-    height: 4px;
-    background: transparent;
-    box-shadow: 1014px 29px #FFF , 1173px 550px #FFF , 1139px 293px #FFF , 781px 1403px #FFF , 1731px 1297px #FFF , 1871px 850px #FFF , 1636px 1675px #FFF , 1221px 1823px #FFF , 1964px 1852px #FFF , 1363px 475px #FFF , 1413px 61px #FFF , 1724px 1208px #FFF , 399px 604px #FFF , 1150px 52px #FFF , 1435px 200px #FFF , 254px 615px #FFF , 994px 941px #FFF , 557px 376px #FFF , 124px 447px #FFF , 393px 1156px #FFF , 540px 1246px #FFF , 448px 650px #FFF , 556px 1823px #FFF , 950px 973px #FFF , 377px 527px #FFF , 1328px 1791px #FFF , 416px 751px #FFF , 1154px 1313px #FFF , 1230px 821px #FFF , 1680px 1858px #FFF , 1734px 830px #FFF , 1679px 387px #FFF , 448px 329px #FFF , 583px 84px #FFF , 1956px 1206px #FFF , 567px 69px #FFF , 217px 926px #FFF , 766px 432px #FFF , 184px 597px #FFF , 843px 430px #FFF , 38px 1332px #FFF , 1147px 542px #FFF , 959px 45px #FFF , 939px 165px #FFF , 1158px 421px #FFF , 1953px 1722px #FFF , 1571px 946px #FFF , 1116px 593px #FFF , 1412px 1578px #FFF , 1222px 1102px #FFF , 226px 98px #FFF , 98px 691px #FFF , 914px 690px #FFF , 1269px 1310px #FFF , 1236px 381px #FFF , 1967px 1417px #FFF , 623px 283px #FFF , 1957px 794px #FFF , 1445px 1576px #FFF , 1910px 1644px #FFF , 1874px 735px #FFF , 1649px 460px #FFF , 844px 279px #FFF , 22px 190px #FFF , 820px 1624px #FFF , 684px 1352px #FFF , 772px 1431px #FFF , 1761px 350px #FFF , 1402px 570px #FFF , 431px 1796px #FFF , 921px 473px #FFF , 434px 1630px #FFF , 1223px 1244px #FFF , 1438px 34px #FFF , 1508px 1324px #FFF , 202px 1403px #FFF , 1636px 843px #FFF , 1768px 552px #FFF , 1344px 15px #FFF , 880px 1089px #FFF , 1899px 1236px #FFF , 958px 51px #FFF , 766px 1964px #FFF , 50px 592px #FFF , 1493px 1491px #FFF , 1838px 142px #FFF , 692px 1783px #FFF , 582px 460px #FFF , 527px 243px #FFF , 996px 1899px #FFF , 328px 1467px #FFF , 269px 1103px #FFF , 506px 1445px #FFF , 531px 375px #FFF , 1777px 990px #FFF , 1798px 204px #FFF , 1953px 1501px #FFF , 2px 1550px #FFF , 1759px 1074px #FFF , 1884px 1046px #FFF;
-    animation: animStar 150s linear infinite;
+}
+
+@media (max-width: 900px) {
+  .process_tabs {
+    transform: scale(0.45);
   }
-  #stars3:after {
-    overflow: hidden;
-    content: " ";
-    position: absolute;
-    top: 2000px;
-    width: 4px;
-    height: 4px;
-    background: transparent;
-    box-shadow: 1014px 29px #FFF , 1173px 550px #FFF , 1139px 293px #FFF , 781px 1403px #FFF , 1731px 1297px #FFF , 1871px 850px #FFF , 1636px 1675px #FFF , 1221px 1823px #FFF , 1964px 1852px #FFF , 1363px 475px #FFF , 1413px 61px #FFF , 1724px 1208px #FFF , 399px 604px #FFF , 1150px 52px #FFF , 1435px 200px #FFF , 254px 615px #FFF , 994px 941px #FFF , 557px 376px #FFF , 124px 447px #FFF , 393px 1156px #FFF , 540px 1246px #FFF , 448px 650px #FFF , 556px 1823px #FFF , 950px 973px #FFF , 377px 527px #FFF , 1328px 1791px #FFF , 416px 751px #FFF , 1154px 1313px #FFF , 1230px 821px #FFF , 1680px 1858px #FFF , 1734px 830px #FFF , 1679px 387px #FFF , 448px 329px #FFF , 583px 84px #FFF , 1956px 1206px #FFF , 567px 69px #FFF , 217px 926px #FFF , 766px 432px #FFF , 184px 597px #FFF , 843px 430px #FFF , 38px 1332px #FFF , 1147px 542px #FFF , 959px 45px #FFF , 939px 165px #FFF , 1158px 421px #FFF , 1953px 1722px #FFF , 1571px 946px #FFF , 1116px 593px #FFF , 1412px 1578px #FFF , 1222px 1102px #FFF , 226px 98px #FFF , 98px 691px #FFF , 914px 690px #FFF , 1269px 1310px #FFF , 1236px 381px #FFF , 1967px 1417px #FFF , 623px 283px #FFF , 1957px 794px #FFF , 1445px 1576px #FFF , 1910px 1644px #FFF , 1874px 735px #FFF , 1649px 460px #FFF , 844px 279px #FFF , 22px 190px #FFF , 820px 1624px #FFF , 684px 1352px #FFF , 772px 1431px #FFF , 1761px 350px #FFF , 1402px 570px #FFF , 431px 1796px #FFF , 921px 473px #FFF , 434px 1630px #FFF , 1223px 1244px #FFF , 1438px 34px #FFF , 1508px 1324px #FFF , 202px 1403px #FFF , 1636px 843px #FFF , 1768px 552px #FFF , 1344px 15px #FFF , 880px 1089px #FFF , 1899px 1236px #FFF , 958px 51px #FFF , 766px 1964px #FFF , 50px 592px #FFF , 1493px 1491px #FFF , 1838px 142px #FFF , 692px 1783px #FFF , 582px 460px #FFF , 527px 243px #FFF , 996px 1899px #FFF , 328px 1467px #FFF , 269px 1103px #FFF , 506px 1445px #FFF , 531px 375px #FFF , 1777px 990px #FFF , 1798px 204px #FFF , 1953px 1501px #FFF , 2px 1550px #FFF , 1759px 1074px #FFF , 1884px 1046px #FFF;
-  }
-  
-  @keyframes animStar {
-    from {
-      transform: translateY(-1000px);
-    }
-    to {
-      transform: translateY(-2000px);
-    }
-  }
-  
+}
+
+/********* Testinmonials **********/
+blockquote {
+	font-weight: 100;
+	font-size: 1.5rem;
+	position: relative;
+	margin: 0;
+	padding: .5rem;
+}
+
+
+/****** Cards *****/
+.cards_wrap__card h2 {
+  font-size: 5vw;
+  text-align: center;
+}
+.cards_wrap__card h2 span {
+  margin-top: 1rem;
+  display: block;
+  font-size: 1rem;
+  font-weight: normal;
+}
+.cards_wrap__card-stick {
+  top: 2rem;
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 2rem;
+  background-position: center;
+  background-image: url("/3d_house_model.png");
+  background-size: cover;
+  height: 90vh;
+}
+.cards_wrap__card-stick.color2 {
+  background-image: url("/product_rendering_360space.jpg");
+}
+.cards_wrap__card-stick.color3 {
+  background-image: url("/ar_3d.webp");
+}
+.cards_wrap__card-stick.color4 {
+  background-image: url("/video_rendering_360space.png");
+}
+.cards_wrap__card-stick.last {
+  background-image: url("https://images.unsplash.com/photo-1676731820466-00219017ab07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1635&q=80");
+}
+.cards_wrap__card:nth-child(1) {
+  height: 450vh;
+}
+.cards_wrap__card:nth-child(2) {
+  margin-top: -360vh;
+  height: 360vh;
+}
+.cards_wrap__card:nth-child(3) {
+  margin-top: -270vh;
+  height: 270vh;
+}
+.cards_wrap__card:nth-child(4) {
+  margin-top: -180vh;
+  height: 180vh;
+}
+.cards_wrap__card:nth-child(5) {
+  margin-top: -90vh;
+  height: 90vh;
+}
+
+
+/******* Honey comb gallery **********/
+.gallery {
+  --s: 150px; /* control the size */
+  --g: 10px;  /* control the gap */
+  display: grid;
+  margin: calc(var(--g) + var(--g));
+}
+
+.gallery img {
+  grid-area: 1/1;
+  width: var(--s);
+  aspect-ratio: 1.15;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%,75% 100%,25% 100%,0 50%);
+  transform: translate(var(--_x,0),var(--_y,0)) scale(var(--_t,1));
+  cursor: pointer;
+  filter: grayscale(20%);
+  transition: .2s linear;
+}
+.gallery img:hover {
+  filter: grayscale(0);
+  z-index: 1;
+  --_t: 3;
+}
+
+.gallery img:nth-child(1) {--_y: calc(-100% - var(--g))}
+.gallery img:nth-child(7) {--_y: calc( 100% + var(--g))}
+.gallery img:nth-child(3),
+.gallery img:nth-child(5) {--_x: calc(-75% - .87*var(--g))}
+.gallery img:nth-child(4),
+.gallery img:nth-child(6) {--_x: calc( 75% + .87*var(--g))}
+.gallery img:nth-child(3),
+.gallery img:nth-child(4) {--_y: calc(-50% - .5*var(--g))}
+.gallery img:nth-child(5), 
+.gallery img:nth-child(6) {--_y: calc( 50% + .5*var(--g))}
+
+
+/********** Founders ************/
+.card_profile{
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.card_profile .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card_profile .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.card_profile .card_title {
+  text-align: center;
+  border-radius: 0px 0px 50px 50px;
+  margin-top: 30px;
+  z-index: 10;
+  margin-top: -25px;
+  height: 25px;
+}
+
+.card_profile:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+
+
+/********** sservices ***********/

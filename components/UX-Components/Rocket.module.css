@@ -1,0 +1,186 @@
+/* space ship */
+.draw_container {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #222; */
+  }
+  
+.draw_container .draw {
+  height: 600px;
+  width: 400px;
+  position: relative;
+  margin-top: 10%;
+}
+
+/* Rocket */
+.draw_container .rocket {
+  position: absolute;
+  height: 180px;
+  width: 80px;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 25% 25% / 50% 50% 40% 40%;
+  background-color: #e0dede;
+  box-shadow: 0 -3px 0 #FFF;
+  transform-style: preserve-3d;
+  z-index: 2;
+  animation: animateRocket 1s linear alternate infinite;
+}
+.draw_container .rocket::before,
+.draw_container .rocket:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.draw_container .rocket::before {
+  width: 55%;
+  height: 10px;
+  background-color: #FF4547;
+  bottom: -10px;
+  border-radius: 0% 0% 25% 25% / 50% 50% 40% 40%;
+}
+.draw_container .rocket:after {
+  height: 55px;
+  width: 155%;
+  background-color: #FF4547;
+  bottom: 0;
+  z-index: -10;
+  transform: translateX(-50%) translateZ(-1px);
+  border-radius: 50% 50% 10% 10% / 90% 90% 20% 20%;
+}
+.draw_container .rocket .window {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background-color: #FF4547;
+  box-sizing: initial;
+  border: 5px solid #adadad;
+}
+
+@keyframes animateRocket {
+  to {
+    transform: translateX(-50%) translateY(3px);
+  }
+}
+
+/* Smoke */
+.draw_container .smoke {
+  height: 200px;
+  width: 32px;
+  top: 260px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 1;
+  background-image: linear-gradient(to bottom, 
+    rgba(255, 255, 255, .1), 
+    rgba(255, 255, 255, .9)
+  );
+}
+.draw_container .smoke > div {
+  position: absolute;
+  border-radius: 50%;
+}
+.draw_container .smoke .one {
+  height: 200px;
+  width: 200px;
+  background-color: rgba(255, 255, 255, .4);
+  top: 80px;
+  left: -180px;
+  box-shadow: 
+      -50px 80px 0 -30px rgba(255, 255, 255, .4),
+      160px 80px 0 0px rgba(255, 255, 255, .4),
+      290px 80px 0 -50px rgba(255, 255, 255, .4);
+  animation: animateSmoke 3s linear alternate infinite;
+  opacity: .9;
+}
+.draw_container .smoke .two {
+  height: 210px;
+  width: 210px;
+  top: 120px;
+  left: -90px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 
+      -90px 0px 0 -40px rgba(255, 255, 255, 1),
+      90px 60px 0 -80px rgba(255, 255, 255, 1),
+      80px -40px 0 -50px rgba(255, 255, 255, 1);
+  animation: animateSmoke 1s linear alternate-reverse infinite;
+  opacity: 1;
+}
+
+@keyframes animateSmoke {
+  to {
+    opacity: 1;
+    transform: scale(.98) translate(1px);
+  }
+}
+
+/* Stars */
+.stars {
+  top: 150px;
+}
+.star,
+.star:before {
+  position: absolute;
+  background-color: #FFF;
+  border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  box-shadow: 0 0 7px rgba(255, 255, 255, .5);
+}
+.star {
+  height: 15px;
+  width: 2px;
+}
+.star:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(90deg);
+}
+.small {
+  height: 10px;
+  width: 1px;
+}
+.one {
+  top: 10%;
+  left: 10%;
+}
+.two {
+  top: 40%;
+  height: 10px;
+}
+.three {
+  top: 50%;
+  left: 50%;
+}
+.four {
+  top: 57%;
+  left: 70%;
+}
+.five {
+  top: 25%;
+  left: 70%;
+}
+.six {
+  top: 15%;
+  left: 110%;
+}
+.seven {
+  top: 60%;
+  left: 120%;
+}
+.eight {
+  top: 75%;
+  left: -10%;
+}
